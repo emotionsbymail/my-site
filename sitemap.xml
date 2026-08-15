@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+    <!-- 1. Главная страница -->
+    <url>
+        <loc>https://emotionsbymail.com/</loc>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://emotionsbymail.com/" />
+        <xhtml:link rel="alternate" hreflang="ru" href="https://emotionsbymail.com/ru" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://emotionsbymail.com/en" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://emotionsbymail.com/" />
+        <lastmod>2026-08-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- 2. Бумажные письма (paper) -->
+    <url>
+        <loc>https://emotionsbymail.com/paper</loc>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://emotionsbymail.com/paper" />
+        <xhtml:link rel="alternate" hreflang="ru" href="https://emotionsbymail.com/ru/paper" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://emotionsbymail.com/en/paper" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://emotionsbymail.com/paper" />
+        <lastmod>2026-08-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 3. Email-поддержка (digital) -->
+    <url>
+        <loc>https://emotionsbymail.com/digital</loc>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://emotionsbymail.com/digital" />
+        <xhtml:link rel="alternate" hreflang="ru" href="https://emotionsbymail.com/ru/digital" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://emotionsbymail.com/en/digital" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://emotionsbymail.com/digital" />
+        <lastmod>2026-08-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>

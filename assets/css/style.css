@@ -1,0 +1,1186 @@
+/*==================================================
+    1. ПЕРЕМЕННЫЕ И ТЕМЫ (Light & Dark)
+==================================================*/
+:root {
+    --bg: #EAECE8;
+    --dark: #2D4C3B;
+    --accent: #C58B74;
+    --accent-rgb: 197, 139, 116; /* Для эффектов прозрачности */
+    --link-color: #A64D32;
+    --white: #FFFFFF;
+    --text-main: #1A3326;
+    --card-bg: rgba(255, 255, 255, 0.5);
+    --border-color: rgba(45, 76, 59, 0.15);
+    --btn-text: #FFFFFF;
+    --error: #e74c3c;
+    --success: #2ecc71;
+    --email-highlight: #C28E5C; /* Насыщенный песочно-ореховый для светлой темы */
+}
+
+/* Работает и через <html class="dark-mode">, и через <body class="dark-mode"> */
+.dark-mode {
+    --bg: #1A2E24;
+    --dark: #EAECE8;
+    --accent: #D9A18C;
+    --accent-rgb: 217, 161, 140;
+    --link-color: #D9A18C;
+    --white: #243D2F;
+    --text-main: #EAECE8;
+    --card-bg: rgba(45, 76, 59, 0.4);
+    --border-color: rgba(234, 236, 232, 0.15);
+    --btn-text: #1A2E24;
+    --email-highlight: #E5C396; /* Фирменный яркий песочный цвет для темной темы */
+}
+
+/*==================================================
+    2. БАЗОВЫЕ СТИЛИ И ЗАЩИТА ОТ ГОРИЗОНТАЛЬНОГО СКРОЛЛА
+==================================================*/
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    /* Не добавляем overflow-x: hidden сюда, чтобы не ломать position: sticky */
+    width: 100%;
+}
+
+body {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden; /* Блокируем горизонтальный скролл только на уровне body */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Автоматический перенос длинных слов для предотвращения переполнения */
+p, h1, h2, h3, h4, h5, h6, span, a {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.page-content {
+    flex: 1;
+    padding: 50px 0;
+}
+
+/*==================================================
+    3. ХЕДЕР (ШАПКА)
+==================================================*/
+.main-header {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-main);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    font-weight: 400;
+    color: var(--accent);
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Главное меню навигации */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.main-nav .nav-link {
+    text-decoration: none;
+    color: var(--text-main);
+    opacity: 0.65; /* Приглушенный цвет для неактивных ссылок */
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.main-nav .nav-link:hover {
+    color: var(--link-color);
+    opacity: 1; /* Возвращаем яркость при наведении */
+}
+
+/* Активная страница */
+.main-nav .nav-link.active {
+    color: var(--link-color);
+    opacity: 1; /* Полная яркость для активной ссылки */
+    border-bottom-color: var(--link-color);
+    font-weight: 600;
+}
+
+/* Разделители в меню */
+.nav-divider {
+    color: var(--text-main);
+    opacity: 0.3;
+    font-size: 0.9rem;
+    user-select: none;
+}
+
+/* Переключатель языков */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+}
+
+.lang-btn {
+    text-decoration: none;
+    color: var(--text-main);
+    opacity: 0.65; /* Приглушенный цвет для неактивных языков */
+    font-weight: 500;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.lang-btn:hover {
+    opacity: 1; /* Возвращаем яркость при наведении */
+}
+
+.lang-btn.active {
+    opacity: 1; /* Полная яркость для выбранного языка */
+    font-weight: 700;
+    color: var(--link-color);
+    border-bottom: 2px solid var(--link-color);
+}
+
+.lang-divider {
+    color: var(--text-main);
+    opacity: 0.3;
+}
+
+/* Кнопка переключения темы */
+.theme-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 4px 8px;
+    border-radius: 50%;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.15);
+}
+
+/* Бургер-кнопка */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 19px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 101;
+}
+
+.burger-menu span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-main);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/*==================================================
+    4. КОНТЕНТ, КНОПКИ И ВСТРОЕННАЯ ФОРМА
+==================================================*/
+.welcome-section {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    padding: 40px 25px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* SEO заголовок */
+.seo-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+/* Динамическое приветствие */
+.greeting-text {
+    font-size: 2.3rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--text-main);
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+}
+
+/* Подзаголовок */
+.welcome-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-main);
+    opacity: 0.85;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* Бумажное письмо / Кнопка отправки */
+.btn-paper {
+    background-color: var(--dark);
+    color: var(--btn-text);
+    border: 2px solid var(--dark);
+}
+
+.btn-paper:hover,
+.btn-paper:active {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Электронное письмо */
+.btn-digital {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 2px solid var(--dark);
+}
+
+.btn-digital:hover,
+.btn-digital:active {
+    background-color: transparent;
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Встроенная форма в карточке welcome-section */
+.inline-notify-form-container {
+    margin: 20px 0;
+    width: 100%;
+}
+
+.welcome-inline-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.inline-input {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 30px;
+    border: 1.5px solid var(--border-color);
+    background-color: var(--white);
+    color: var(--text-main);
+    font-size: 0.98rem;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dark-mode .inline-input {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.inline-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.2);
+}
+
+.inline-submit-btn {
+    padding: 14px 26px;
+    flex-shrink: 0;
+}
+
+/*==================================================
+    5. ФУТЕР
+==================================================*/
+.main-footer {
+    background-color: var(--white);
+    color: var(--text-main);
+    padding-top: 40px;
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    padding-bottom: 30px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.footer-logo span {
+    color: var(--accent);
+}
+
+.footer-col h4 {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a, .footer-contacts a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.footer-links a:hover, .footer-contacts a:hover {
+    opacity: 0.8;
+}
+
+/* Колонка и оформление акцентной печати в футере */
+.footer-stamp-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+}
+
+.footer-stamp-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+}
+
+.footer-stamp-img {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    /* Легкий наклон создает эффект настоящего ручного оттиска */
+    transform: rotate(-6deg);
+    opacity: 0.85;
+    transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+}
+
+.footer-stamp-wrapper:hover .footer-stamp-img {
+    transform: rotate(0deg) scale(1.06);
+    opacity: 1;
+}
+
+/* Переворот цвета штемпеля в темной теме */
+html.dark-mode .footer-stamp-img,
+.dark-mode .footer-stamp-img {
+    filter: invert(1) brightness(0.9);
+    opacity: 0.75;
+}
+
+html.dark-mode .footer-stamp-wrapper:hover .footer-stamp-img,
+.dark-mode .footer-stamp-wrapper:hover .footer-stamp-img {
+    opacity: 0.95;
+}
+
+.footer-disclaimer {
+    border-top: 1px dashed var(--border-color);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    line-height: 1.4;
+}
+
+.footer-bottom {
+    background-color: var(--bg);
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/*==================================================
+    6. АДАПТИВНОСТЬ
+==================================================*/
+@media (max-width: 768px) {
+    .page-content {
+        padding: 30px 0;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+
+    .nav-wrapper {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 25px 0;
+        gap: 20px;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+        display: none;
+    }
+
+    .nav-wrapper.active {
+        display: flex;
+    }
+
+    .main-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* Скрытие разделителей "|" в навигации на мобильных */
+    .nav-divider {
+        display: none;
+    }
+
+    .main-nav .nav-link {
+        font-size: 1.05rem;
+        padding-bottom: 4px;
+    }
+
+    /* Вертикальное отображение переключателя языков на мобильных */
+    .lang-switcher {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    /* Скрытие разделителей "|" на мобильных */
+    .lang-divider {
+        display: none;
+    }
+
+    .lang-btn {
+        font-size: 1.1rem;
+        padding: 4px 10px;
+    }
+
+    .welcome-section {
+        margin: 10px auto;
+        padding: 30px 18px;
+    }
+
+    .seo-title {
+        font-size: 0.95rem;
+    }
+
+    .greeting-text {
+        font-size: 1.75rem;
+    }
+
+    .welcome-subtitle {
+        font-size: 1.05rem;
+    }
+
+    .buttons-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .footer-stamp-col {
+        margin-top: 10px;
+    }
+
+    .footer-stamp-img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Мобильная подгонка инлайновой формы */
+@media (max-width: 768px) {
+    .welcome-inline-form {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .inline-input {
+        width: 100%;
+        min-width: 100%; /* Гарантирует, что инпут не скомкается */
+    }
+
+    .inline-submit-btn {
+        width: 100%;
+    }
+}
+
+/* Дополнительные исправления для узких экранов (≤ 480px, Samsung S8 и т.п.) */
+@media (max-width: 480px) {
+    /* Логотип + плашка бейджа в футере */
+    .footer-col:first-child {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    /* Нижний копирайт без рваных переносов */
+    .copyright-divider {
+        display: none; /* Убираем разделитель "|" */
+    }
+
+    .footer-bottom {
+        padding: 12px 10px;
+    }
+
+    .footer-bottom-content,
+    .footer-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        text-align: center;
+    }
+
+    .footer-bottom span {
+        white-space: nowrap; /* Не даёт фразе "Все права защищены" разорваться на 2 строки */
+    }
+}
+/*==================================================
+   7. ЭМОЦИОНАЛЬНЫЕ КНОПКИ
+==================================================*/
+.emotions-wrapper {
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px dashed var(--border-color);
+}
+
+.emotions-heading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-main);
+    opacity: 0.9;
+}
+
+.emotions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+/* Жесткий сброс для ссылок-кнопок на iOS и Android */
+a.emotion-btn, 
+a.emotion-btn:visited, 
+a.emotion-btn:active, 
+a.emotion-btn:hover {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 14px 10px !important;
+    border-radius: 14px !important;
+    text-decoration: none !important; /* Убирает синее подчеркивание */
+    color: var(--text-main) !important; /* Убирает синий цвет ссылки */
+    background-color: var(--white) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent; /* Убирает серое/синее выделение при тапе на мобилке */
+    transition: all 0.25s ease;
+}
+
+a.emotion-btn:hover,
+a.emotion-btn:active {
+    transform: translateY(-2px);
+    border-color: var(--accent) !important;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.emotion-icon {
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+    line-height: 1;
+}
+
+.emotion-label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--text-main);
+}
+
+/* Нейтральная кнопка "Сложно определить" */
+.neutral-emotion-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+a.emotion-neutral, 
+a.emotion-neutral:visited, 
+a.emotion-neutral:active {
+    width: 100%;
+    max-width: 280px;
+    flex-direction: row !important;
+    gap: 10px !important;
+    background-color: transparent !important;
+    border: 1.5px dashed var(--accent) !important;
+}
+
+a.emotion-neutral .emotion-icon {
+    margin-bottom: 0 !important;
+    font-size: 1.3rem;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 480px) {
+    .emotions-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* Ровно 2 красивых колонки на телефонах */
+        gap: 10px !important;
+    }
+    
+    a.emotion-btn {
+        padding: 12px 8px !important;
+    }
+
+    .emotion-icon {
+        font-size: 1.4rem;
+    }
+
+    .emotion-label {
+        font-size: 0.82rem;
+    }
+}
+
+/*==================================================
+    8. БЛОК КОПИРОВАНИЯ И МЯГКИЙ ОВЕРЛЕЙ
+==================================================*/
+.copy-fallback-block {
+    margin-top: 30px;
+    padding: 16px;
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.fallback-text {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    opacity: 0.85;
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.fallback-email-display {
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--link-color);
+    letter-spacing: 0.5px;
+}
+
+/* Стили для кнопки скопировать */
+.btn-copy {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1.5px solid var(--border-color);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-copy:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* 1. Затемняющий фон на весь экран при копировании */
+.copy-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+/* 2. Центральное модальное окно */
+.copy-modal {
+    background-color: var(--white);
+    color: var(--text-main);
+    padding: 24px 32px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    max-width: 85vw;
+    transform: scale(0.9);
+    transition: transform 0.2s ease;
+}
+
+.copy-icon {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.copy-message {
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+/* 3. Состояние активации (класс добавляется через JS) */
+.copy-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.copy-overlay.show .copy-modal {
+    transform: scale(1);
+}
+
+/*==================================================
+    9. БЛОК FAQ (АККОРДЕОН)
+==================================================*/
+.faq-section {
+    margin-top: 50px;
+    padding: 20px 20px; /* Добавили 20px отступов по бокам */
+    width: 100%;
+}
+
+.faq-title {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: var(--text-main);
+}
+
+.faq-accordion {
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.faq-item {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-item[open] {
+    border-color: var(--accent);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.faq-question {
+    padding: 16px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+    list-style: none; /* Убирает дефолтную стрелочку браузера */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+/* Убирает стрелочку в Safari */
+.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+.faq-icon {
+    font-size: 0.85rem;
+    transition: transform 0.3s ease;
+    opacity: 0.6;
+}
+
+/* Поворот стрелочки при открытии */
+.faq-item[open] .faq-icon {
+    transform: rotate(90deg);
+    color: var(--accent);
+    opacity: 1;
+}
+
+.faq-answer {
+    padding: 0 20px 16px 20px;
+    font-size: 0.93rem;
+    line-height: 1.5;
+    color: var(--text-main);
+    opacity: 0.85;
+    border-top: 1px dashed transparent;
+}
+
+.faq-item[open] .faq-answer {
+    border-top-color: var(--border-color);
+    padding-top: 12px;
+}
+
+/*==================================================
+    10. СТИЛИ ДЛЯ EMAIL В ФУТЕРЕ И ИКОНКИ КОПИРОВАНИЯ
+==================================================*/
+.footer-email-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.footer-email-row .email-link {
+    color: var(--link-color);
+    text-decoration: none; /* Убрано подчеркивание */
+    transition: opacity 0.2s ease, text-decoration 0.2s ease;
+}
+
+.footer-email-row .email-link:hover {
+    opacity: 0.8;
+}
+
+/* Кнопка с иконкой два листика */
+.copy-btn {
+    background: transparent;
+    border: none;
+    padding: 3px 5px;
+    cursor: pointer;
+    color: var(--text-main);
+    opacity: 0.65;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    -webkit-tap-highlight-color: transparent;
+    transition: opacity 0.2s ease, transform 0.15s ease, background-color 0.2s ease;
+}
+
+.copy-btn:hover {
+    opacity: 1;
+    color: var(--accent);
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.dark-mode .copy-btn:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.copy-btn:active {
+    transform: scale(0.9);
+}
+
+.copy-btn svg {
+    display: block;
+}
+
+/* Подсказка о бонусе под кнопкой запуска */
+.launch-bonus {
+    margin-top: 16px;
+    font-size: 0.88rem;
+    color: var(--text-main);
+    opacity: 0.85;
+    line-height: 1.4;
+}
+.launch-bonus-1 {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-size: 0.88rem;
+    color: var(--text-main);
+    opacity: 0.85;
+    line-height: 1.4;
+}
+
+.launch-bonus strong {
+    color: var(--accent);
+}
+
+/*==================================================
+    11. МОДАЛЬНОЕ ОКНО РЕЗУЛЬТАТА (УСПЕХ / ОШИБКА)
+==================================================*/
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh; /* Поддержка мобильных высот */
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease; /* Плавное затухание для первого показа */
+}
+
+.modal-card {
+    background-color: var(--white);
+    color: var(--text-main);
+    padding: 35px 25px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 440px;
+    position: relative;
+    text-align: center;
+    transform: scale(0.92);
+    transition: transform 0.3s ease; /* Плавное увеличение для первого показа */
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-overlay.active .modal-card {
+    transform: scale(1);
+}
+
+/* Если пользователь уже подписан / открывает окно не в первый раз */
+.modal-overlay.no-animation,
+.modal-overlay.no-animation .modal-card {
+    transition: none !important; /* Мгновенное появление без задержки */
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--text-main);
+    cursor: pointer;
+    opacity: 0.6;
+    line-height: 1;
+    transition: opacity 0.2s ease;
+}
+
+.modal-close:hover {
+    opacity: 1;
+}
+
+.modal-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.modal-desc {
+    font-size: 0.92rem;
+    opacity: 0.85;
+    margin-bottom: 22px;
+    line-height: 1.5;
+}
+
+.modal-success {
+    padding: 10px 0;
+    animation: fadeIn 0.3s ease;
+}
+
+.success-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/*==================================================
+    12. КНОПКА ОПЛАТЫ (ПОДДЕРЖКА ЗА ЧАШКОЙ КОФЕ)
+==================================================*/
+a.bmc-button-wrapper {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    background-color: var(--dark);
+    color: var(--btn-text) !important;
+    border: 2px solid var(--dark);
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+a.bmc-button-wrapper:hover,
+a.bmc-button-wrapper:active {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 576px) {
+    a.bmc-button-wrapper {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/*==================================================
+    13. ОБЕРТКА ДЛЯ EMAIL В МОДАЛЬНОМ ОКНЕ
+==================================================*/
+.user-entered-email-wrap {
+    margin: 8px 0 12px 0;
+    text-align: center;
+    width: 100%;
+}
+
+#userEnteredEmail,
+.user-entered-email {
+    color: var(--email-highlight) !important;
+    font-size: 1.08em;
+    font-weight: 700;
+    word-break: break-all;
+    display: inline-block;
+}
+
+.copyright-divider {
+    margin: 0 8px;
+    opacity: 0.5;
+}
