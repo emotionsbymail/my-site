@@ -11,6 +11,11 @@ if (!file_exists($logDir)) {
 ini_set('log_errors', '1');
 ini_set('error_log', $logDir . '/php_errors.log');
 
+// Безопасность: прячем вывод ошибок на экран для посетителей
+ini_set('display_errors', '0');
+ini_set('display_startup_errors', '0');
+error_reporting(E_ALL); // Перехватываем абсолютно все уровни ошибок (Fatal, Warnings, Deprecated)
+
 // Вспомогательная функция для получения реального IP-адреса посетителя
 function getClientIP() {
     if (!empty($_SERVER['HTTP_CF_CONNECTING_IP'])) {
@@ -98,8 +103,9 @@ if (file_exists($lang_file)) {
     $texts = include($lang_file);
 } else {
     $texts = [];
-    // Логируем предупреждение, если файл языкового перевода не найден
-    error_log("Warning: Language file not found: {$lang_file}");
+    // Логируем предупреждение с информацией об IP и запрашиваемом файле
+    $user_ip = getClientIP();
+    error_log("Warning: Language file not found: {$lang_file} | IP -> {$user_ip}");
 }
 
 // 6. Простейший роутер
@@ -118,17 +124,25 @@ switch ($clean_route) {
         $page_title = $texts['title_digital'] ?? 'Digital Support';
         $template = 'digital.php';
         break;
+
+    case 'payment':
+        $page_title = $texts['title_payment'] ?? 'Payment Guide';
+        $template = 'payment.php';
+        break;
         
     default:
         // Отдаем чистую страницу 404 без подключения header.php и footer.php
         http_response_code(404);
         
-        // Получаем реальный IP-адрес клиента
+        // Расширенный сбор метрик для логирования ошибки 404
         $user_ip = getClientIP();
         $request_uri = $_SERVER['REQUEST_URI'] ?? $clean_route;
+        $http_method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
+        $user_agent = $_SERVER['HTTP_USER_AGENT'] ?? 'Unknown Agent';
+        $referer = $_SERVER['HTTP_REFERER'] ?? 'Direct';
 
-        // Логируем попытки захода на несуществующие страницы с записью IP
-        error_log("404 Not Found: IP -> {$user_ip} | URI -> {$request_uri}");
+        // Формируем детальную запись об ошибке 404
+        error_log("404 Not Found: [{$http_method}] URI -> {$request_uri} | IP -> {$user_ip} | Referer -> {$referer} | User-Agent -> {$user_agent}");
 
         $file_404 = __DIR__ . '/templates/404.php';
         if (file_exists($file_404)) {

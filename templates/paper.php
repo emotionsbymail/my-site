@@ -24,7 +24,7 @@ $texts = $t;
 ?>
 
 <section class="welcome-section">
-    <p class="seo-title"><?= htmlspecialchars($t['welcome_seo_title'] ?? $t['paper_seo_title'] ?? '') ?></p>
+    <p class="seo-title"><?=  $t['paper_seo_title'] ?? '' ?></p>
     <h1 class="greeting-text"><?= htmlspecialchars($t['welcome_heading'] ?? $t['paper_title'] ?? '') ?></h1>
     <p class="welcome-subtitle">
         <?= $t['welcome_subtitle'] ?? $t['paper_desc'] ?? '' ?>

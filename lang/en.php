@@ -16,21 +16,47 @@ return [
     'choose_format'     => 'Choose the format that suits you right now:',
     'btn_paper'         => 'Get a Paper Letter',
     'btn_digital'       => 'Vent via Email',
+    
+    // Service Block (Full Promotional Version)
+    'promo_tagline'          => 'Keep the warmth of meaningful words — forever!',
+    'promo_price_btn'        => 'Try support starting at €5',
+    'promo_intro_title'      => 'Life becomes meaningful when someone truly listens to us',
+    'promo_intro_text1'      => 'Whether you are going through a difficult time, searching for yourself, wanting to share something deeply personal, or simply in need of a kind word — sincere support helps make every day lighter and brighter.',
+    'promo_intro_text2'      => 'Many people face feelings of loneliness, stress, and emotional burnout when it is critical to open up without fear of being judged. Unfortunately, loved ones aren\'t always ready to listen, and booking an appointment with a professional can feel overwhelming or psychologically difficult.',
+    'promo_about_heading'    => 'Keep care and understanding always by your side',
+    'promo_about_desc'       => 'With Emotions by Mail, you can express yourself and receive a gentle, thoughtful, and supportive reply from a compassionate companion in the format that suits you best. The service helps you release emotions, find peace of mind, and feel that you are not alone.',
+    'promo_choose_format'    => '<b>Our projects:</b>',
+    'promo_success'          => 'That\'s it. You are no longer alone with your worries.',
+    'promo_why_title'        => 'Why people choose Emotions&nbsp;by&nbsp;Mail',
+    'promo_feat_1'           => '<b>Two formats to choose from:</b> gentle Email Support or heartfelt Paper Letters',
+    'promo_feat_2'           => '<b>Complete acceptance:</b> speak freely without censorship, shame, or fear of judgment',
+    'promo_feat_3'           => '<b>Cozy atmosphere:</b> receive letters you will want to reread during difficult moments',
+    'promo_feat_4'           => '<b>Deep approach:</b> every letter is written individually for you, never from a template',
+    'promo_feat_5'           => '<b>Emotional anchor:</b> physical letters can be kept as a tangible source of comfort',
+    'promo_feat_6'           => '<b>Confidentiality:</b> your stories and feelings remain strictly between us',
+    'promo_simplicity_title' => 'Designed for your peace of mind',
+    'promo_simplicity_text1' => 'To get support and attention, you don\'t need to cross barriers or prepare for difficult conversations.',
+    'promo_simplicity_text2' => 'Emotions by Mail is built with deep sensitivity to your state of mind. The ordering process is simple and straightforward: send your story — and wait for a response created uniquely for you.',
+    'promo_quote'            => 'If you\'ve ever thought, "I just really need someone to listen to me and support me," this is a wonderful opportunity to take the first step toward emotional warmth.',
+    'promo_offer_title'      => 'Special introductory offer',
+    'promo_offer_text'       => 'Take the opportunity to gift yourself or a loved one true care and attention — support starting at €5.',
+    'promo_cta_btn'          => 'Order support via Buy Me a Coffee',
+    'promo_payment_security' => 'Secure payment via Buy Me a Coffee',
+    'promo_guarantees'       => 'Complete anonymity • Gentle response strictly on time • Care in every word',
 
     // Paper Page (SEO-Optimized Block)
-    'paper_seo_title'   => 'Paper Letter Service • Tactile Warmth',
+    'paper_seo_title' => 'Paper Letter Service •&nbsp;Tactile&nbsp;Warmth',
     'paper_title'       => 'A Real Letter Hand-Sealed with Wax You Can Hold',
     'paper_desc'        => 'Tangible support and a heartfelt gift for you and your loved ones. A beautifully crafted card on heavy designer paper with meaningful, gentle words, sealed with a real wax stamp, and delivered straight to the mailbox. Send a single special letter for a meaningful date or set up a weekly subscription of caring messages.',
     'btn_order_paper'   => 'Order a Letter',
 
     // Modal Window & Launch Notification (For Paper/Pre-order)
-    'welcome_seo_title'       => 'Paper Letter Service • Tactile Warmth',
+    'welcome_seo_title'       => 'Paper Letter Service •&nbsp;Tactile&nbsp;Warmth',
     'welcome_heading'         => 'A Real Letter Hand-Sealed with Wax You Can Hold',
     'welcome_subtitle'        => 'Tangible support and a heartfelt gift for you and your loved ones. A beautifully crafted card on heavy designer paper with meaningful, gentle words, sealed with a real wax stamp, and delivered straight to the mailbox. Send a single special letter for a meaningful date or set up a weekly subscription of caring messages.',
     'btn_notify_launch'       => 'Notify Me on Launch Day',
-'welcome_bonus_text_1'      => '💡 The service is under development.
-We are finalizing the last details. Leave your email, and we will notify you on opening day.',
-    'welcome_bonus_text'      => '🎁 Subscribe now and get a <strong>personal discount</strong> on your first order on launch day',
+    'welcome_bonus_text_1'    => "💡 The service is under development.\nWe are finalizing the last details. Leave your email, and we will notify you on opening day.",
+    'welcome_bonus_text'      => '🎁 Subscribe now and get a <b>personal discount</b> on your first order on launch day',
 
     'modal_title'             => 'Be Among the First',
     'modal_desc'              => 'Leave your email, and we will write to you on launch day, along with a personal discount for your first order.',
@@ -46,7 +72,7 @@ We are finalizing the last details. Leave your email, and we will notify you on 
     'modal_already_desc'      => 'We will send a notification to your email as soon as everything is ready.',
 
     // Digital Page (SEO-Optimized Block)
-    'digital_seo_title' => 'Anonymous Email Support • Digital Warmth',
+    'digital_seo_title' => 'Anonymous Email Support •&nbsp;Digital&nbsp;Warmth',
     'digital_title'     => 'A Safe Space to Anonymously Vent via Email',
     'digital_desc'      => 'An online emotional venting format for anyone who needs to release anxiety, unload heavy thoughts, and gain clarity. Write freely about anything troubling you — we listen attentively without judgment, help you see the situation from a fresh perspective, and support you in finding inner peace.',
     'btn_order_digital' => 'Start Subscription',
@@ -96,7 +122,7 @@ We are finalizing the last details. Leave your email, and we will notify you on 
     'faq_q5' => 'Is this service truly free?',
     'faq_a5' => 'Yes, absolutely! You can freely express any emotions using the "I just want to vent" button. Replying to your own emails creates a continuous stream of thoughts — your personal safe space diary that helps you see situations from a new perspective and gain clarity.',
     'faq_q6' => 'Can I get a reply from a real person?',
-    'faq_a6' => 'Yes, we offer a "Support over a Cup of Coffee" format. This is a caring dialogue with a specialist who avoids giving rigid advice, helping you hear yourself through insightful questions.<br><br>One session includes a series of 5 emails. The cost is symbolic — the price of a cup of coffee (€5).<br><br><a href="https://www.buymeacoffee.com/emotionsbymail" class="bmc-button-wrapper" target="_blank">☕ Buy me a coffee (€5)</a>',
+    'faq_a6' => 'Yes, we offer a "Support over a Cup of Coffee" format. This is a caring dialogue with a specialist who avoids giving rigid advice, helping you hear yourself through insightful questions.<br><br>One session includes a series of 5 emails. The cost is symbolic — the price of a cup of coffee (€5).<br><br><a href="https://test.emotionsbymail.com/en/payment" class="bmc-button-wrapper">☕ Buy me a coffee (€5)</a>',
 
     // Paper FAQ Section (For Paper Page)
     'paper_faq_title' => 'Frequently Asked Questions',
@@ -124,4 +150,29 @@ We are finalizing the last details. Leave your email, and we will notify you on 
     'footer_sections'   => 'Sections:',
     'footer_contact'    => 'Contact us:',
     'footer_disclaimer' => 'Important: This service provides emotional support but does not replace professional psychotherapy or emergency medical assistance. If you are in a severe crisis, please reach out to local emergency services or lifelines.',
+    
+    // Payment Page
+    'payment_title' => 'Payment Guide for&nbsp;Emotions by&nbsp;Mail Services',
+'payment_intro' => 'A simple and secure order process via&nbsp;the&nbsp;Buy&nbsp;Me&nbsp;a&nbsp;Coffee&nbsp;platform.',
+
+    'payment_step_1_title' => 'Select service format',
+    'payment_step_1_desc'  => 'Go to the payment platform and choose the desired support format.',
+
+    'payment_step_2_title' => 'Enter contact details',
+    'payment_step_2_desc'  => 'Provide your Email so we know where to send the response or verify the shipping address.',
+
+    'payment_step_3_title' => 'Complete payment',
+    'payment_step_3_desc'  => 'Pay conveniently using Card, Apple Pay, or Google Pay. Fully secure.',
+
+    'payment_cta_title'    => 'Ready to place an order?',
+    'payment_cta_desc'     => 'Click the button below to proceed to the secure payment form.',
+    'payment_cta_btn'      => 'Proceed to payment',
+
+    'payment_faq_title'    => 'Frequently Asked Questions',
+    'payment_faq'          => [
+        [
+            'q' => 'Is it safe to pay via Buy Me a Coffee?',
+            'a' => 'Yes, the platform uses Stripe security standards ensuring full transaction safety.'
+        ]
+    ],
 ];

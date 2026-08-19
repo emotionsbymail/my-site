@@ -1,5 +1,5 @@
 <section class="welcome-section">
-    <p class="seo-title"><?= htmlspecialchars($texts['digital_seo_title'] ?? '') ?></p>
+    <p class="seo-title"><?= $texts['digital_seo_title'] ?? '' ?></p>
     <h1 class="greeting-text"><?= htmlspecialchars($texts['digital_title'] ?? '') ?></h1>
     <p class="welcome-subtitle"><?= htmlspecialchars($texts['digital_desc'] ?? '') ?></p>
 
