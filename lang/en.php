@@ -153,16 +153,19 @@ return [
     
     // Payment Page
     'payment_title' => 'Payment Guide for&nbsp;Emotions by&nbsp;Mail Services',
-'payment_intro' => 'A simple and secure order process via&nbsp;the&nbsp;Buy&nbsp;Me&nbsp;a&nbsp;Coffee&nbsp;platform.',
+    'payment_intro' => 'A simple and secure order process via&nbsp;the&nbsp;Buy&nbsp;Me&nbsp;a&nbsp;Coffee&nbsp;platform.',
 
     'payment_step_1_title' => 'Select service format',
     'payment_step_1_desc'  => 'Go to the payment platform and choose the desired support format.',
 
-    'payment_step_2_title' => 'Enter contact details',
-    'payment_step_2_desc'  => 'Provide your Email so we know where to send the response or verify the shipping address.',
+    'payment_step_2_title' => 'Name and message',
+    'payment_step_2_desc'  => 'These fields are optional — feel free to fill them out if you’d like to leave a signature or comment.',
 
-    'payment_step_3_title' => 'Complete payment',
-    'payment_step_3_desc'  => 'Pay conveniently using Card, Apple Pay, or Google Pay. Fully secure.',
+    'payment_step_3_title' => 'Enter contact details',
+    'payment_step_3_desc' => 'Your email is required so we know where to send the reply or confirm the delivery address.',
+    
+    'payment_step_4_title' => 'Complete payment',
+    'payment_step_4_desc'  => 'Pay conveniently using Card, Apple Pay, or Google Pay. Fully secure.',
 
     'payment_cta_title'    => 'Ready to place an order?',
     'payment_cta_desc'     => 'Click the button below to proceed to the secure payment form.',

@@ -31,7 +31,7 @@ if ($lang === 'ru') {
             <?= $texts['payment_title'] ?? '' ?>
         </h1>
 
-        <p class="welcome-subtitle payment-intro">
+        <p class="welcome-subtitle">
             <?= $texts['payment_intro'] ?? '' ?>
         </p>
 
@@ -49,7 +49,7 @@ if ($lang === 'ru') {
                             <?= htmlspecialchars($texts['payment_step_1_desc'] ?? '') ?>
                         </p>
                         <div class="step-image-wrapper" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color);">
-                            <img src="/assets/img/payment/step-1.png" alt="Step 1" loading="lazy" style="width: 100%; height: auto; display: block;">
+                            <img src="/assets/images/payment/step-1.webp" alt="Step 1" loading="lazy" style="width: 100%; height: auto; display: block;">
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ if ($lang === 'ru') {
                             <?= htmlspecialchars($texts['payment_step_2_desc'] ?? '') ?>
                         </p>
                         <div class="step-image-wrapper" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color);">
-                            <img src="/assets/img/payment/step-2.png" alt="Step 2" loading="lazy" style="width: 100%; height: auto; display: block;">
+                            <img src="/assets/images/payment/step-2.webp" alt="Step 2" loading="lazy" style="width: 100%; height: auto; display: block;">
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,23 @@ if ($lang === 'ru') {
                             <?= htmlspecialchars($texts['payment_step_3_desc'] ?? '') ?>
                         </p>
                         <div class="step-image-wrapper" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color);">
-                            <img src="/assets/img/payment/step-3.png" alt="Step 3" loading="lazy" style="width: 100%; height: auto; display: block;">
+                            <img src="/assets/images/payment/step-3.webp" alt="Step 3" loading="lazy" style="width: 100%; height: auto; display: block;">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Шаг 4 -->
+                <div class="payment-step-card">
+                    <div class="step-number" style="font-size: 1.5rem; font-weight: 700; color: var(--accent); margin-bottom: 8px;">4</div>
+                    <div class="step-content">
+                        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;">
+                            <?= htmlspecialchars($texts['payment_step_4_title'] ?? '') ?>
+                        </h3>
+                        <p style="font-size: 0.93rem; opacity: 0.9; margin-bottom: 12px;">
+                            <?= htmlspecialchars($texts['payment_step_4_desc'] ?? '') ?>
+                        </p>
+                        <div class="step-image-wrapper" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color);">
+                            <img src="/assets/images/payment/step-4.webp" alt="Step 4" loading="lazy" style="width: 100%; height: auto; display: block;">
                         </div>
                     </div>
                 </div>

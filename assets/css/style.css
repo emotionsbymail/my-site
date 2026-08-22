@@ -402,7 +402,7 @@ p, h1, h2, h3, h4, h5, h6, span, a {
 }
 
 .about-service-section p {
-    font-size: 0.98rem;
+    font-size: 1.05rem;
     color: var(--text-main);
     opacity: 0.9;
     line-height: 1.65;
@@ -796,7 +796,7 @@ html.dark-mode .footer-stamp-wrapper:hover .footer-stamp-img,
     }
 
     .about-service-section p {
-        font-size: 0.93rem;
+        font-size: 1.05rem;
     }
 
     .about-service-section blockquote {
@@ -1487,7 +1487,8 @@ p a:focus-visible,
 /* Для коротких заголовков и интро: строго в 1 строку на ПК */
 .digital-seo-title,
 .paper-seo-title,
-.payment-intro {
+.payment-intro
+.welcome-subtitle  {
   white-space: nowrap; 
 }
 
@@ -1495,7 +1496,8 @@ p a:focus-visible,
 @media (max-width: 768px) {
   .digital-seo-title,
   .paper-seo-title,
-  .payment-intro {
+  .payment-intro
+  .welcome-subtitle  {
     white-space: normal;
   }
 }
