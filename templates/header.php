@@ -77,7 +77,7 @@ $current_full_url = $protocol . ($_SERVER['HTTP_HOST'] ?? 'emotionsbymail.com') 
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- CSS стили -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=8.8.65">
+    <link rel="stylesheet" href="/assets/css/style.css?v=8.8.91">
 
     <!-- Альтернативные языковые версии (относительные пути для тестовой среды) -->
     <link rel="alternate" hreflang="uk" href="<?= htmlspecialchars($ua_url, ENT_QUOTES, 'UTF-8') ?>" />

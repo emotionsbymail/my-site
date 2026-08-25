@@ -31,6 +31,9 @@
     --btn-text: #1A2E24;
     --email-highlight: #E5C396; /* Фирменный яркий песочный цвет для темной темы */
 }
+html {
+    scroll-behavior: smooth;
+}
 
 /*==================================================
     2. БАЗОВЫЕ СТИЛИ И ЗАЩИТА ОТ ГОРИЗОНТАЛЬНОГО СКРОЛЛА
@@ -691,6 +694,26 @@ html.dark-mode .footer-stamp-wrapper:hover .footer-stamp-img,
     opacity: 0.8;
 }
 
+.footer-stamp-wrapper {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-stamp-wrapper:hover {
+    transform: translateY(-4px) scale(1.05);
+    opacity: 0.9;
+}
+
+.stamp-scroll-top {
+    cursor: pointer;
+    display: inline-block; /* Сохраняет размеры контейнера */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.stamp-scroll-top:hover {
+    transform: translateY(-4px) scale(1.05);
+    opacity: 0.9;
+}
+
 /*==================================================
     6. АДАПТИВНОСТЬ
 ==================================================*/
@@ -1186,6 +1209,32 @@ a.emotion-neutral .emotion-icon {
     border-top-color: var(--border-color);
     padding-top: 12px;
 }
+/* Сохранение переносов и отступы для списков внутри FAQ */
+.faq-answer {
+    white-space: pre-line; /* Чтобы работали обычные переносы строк без HTML-тегов */
+}
+
+.faq-answer p {
+    margin-bottom: 10px;
+}
+
+.faq-answer ol, 
+.faq-answer ul {
+    margin: 8px 0 8px 20px;
+    padding-left: 0;
+}
+
+.faq-answer li {
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+
+/* Отступ для вложенных списков */
+.faq-answer li ul,
+.faq-answer li ol {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
 
 /*==================================================
     10. СТИЛИ ДЛЯ EMAIL В ФУТЕРЕ И ИКОНКИ КОПИРОВАНИЯ
@@ -1424,7 +1473,9 @@ a.bmc-button-wrapper:active {
     СТИЛИ ДЛЯ ОВРАЧНЫХ ТЕКСТОВЫХ ССЫЛОК (INLINE LINKS)
 ==================================================*/
 /* Базовое состояние ссылки в контенте */
+/* Основной стиль ссылок */
 p a, 
+.main-footer a,
 .page-content a:not(.btn):not(.nav-link):not(.lang-btn):not(.emotion-btn):not(.bmc-button-wrapper) {
     color: var(--link-color);
     text-decoration: underline;
@@ -1436,6 +1487,7 @@ p a,
 
 /* Состояние при наведении и нажатии */
 p a:hover, 
+.main-footer a:hover,
 .page-content a:not(.btn):not(.nav-link):not(.lang-btn):not(.emotion-btn):not(.bmc-button-wrapper):hover {
     color: var(--accent);
     text-decoration-color: var(--accent);
@@ -1488,7 +1540,8 @@ p a:focus-visible,
 .digital-seo-title,
 .paper-seo-title,
 .payment-intro
-.welcome-subtitle  {
+.welcome-subtitle
+.promo-security-note  {
   white-space: nowrap; 
 }
 
@@ -1497,7 +1550,383 @@ p a:focus-visible,
   .digital-seo-title,
   .paper-seo-title,
   .payment-intro
-  .welcome-subtitle  {
+  .welcome-subtitle
+  .promo-security-note  {
     white-space: normal;
   }
+}
+.custom-select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.custom-select {
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 38px 10px 16px;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+}
+
+.custom-select:hover, .custom-select:focus {
+    border-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Стилизация опций внутри выпадающего списка */
+.custom-select option {
+    background-color: #12291d; /* Темно-зеленый под ваш фон */
+    color: #ffffff;
+    padding: 10px;
+}
+
+/* Собственная кастомная стрелочка */
+.custom-select-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #ffffff;
+    pointer-events: none;
+}
+/*================================================
+ --- Стили для шагов оплаты (Payment Guide) --- 
+ =================================================*/
+.payment-guide-section .step-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent, #22c55e);
+    margin-bottom: 8px;
+}
+
+.payment-guide-section .step-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.payment-guide-section .step-desc {
+    font-size: 0.93rem;
+    opacity: 0.9;
+    margin-bottom: 12px;
+}
+
+.payment-guide-section .step-image-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color, #e2e8f0);
+}
+
+.payment-guide-section .step-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/*============================================================
+    ИЗОЛИРОВАННЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ ОТКРЫТОК
+==============================================================*/
+
+/* Главная белая карточка-конверт */
+.postcards-section {
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 32px;
+    background-color: var(--white);
+    border-radius: 24px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    box-sizing: border-box;
+}
+
+/* Сброс ограничений внутреннего контейнера, чтобы он не раздувал ширину */
+.postcards-section .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* SEO Заголовок и подзаголовок */
+.seo-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.postcards-section .welcome-subtitle {
+    font-size: 2.1rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--text-main);
+    margin-bottom: 28px;
+    letter-spacing: -0.5px;
+    text-align: center;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Категории (Чипы / Брендовые Pills) --- */
+.postcards-section .category-pills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 36px;
+}
+
+.postcards-section .category-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background-color: transparent;
+    color: var(--text-main);
+    border: 2px solid var(--border-color);
+    border-radius: 30px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-decoration: none !important;
+    transition: all 0.25s ease;
+}
+
+.postcards-section .category-pill:hover,
+.postcards-section .category-pill:active {
+    background-color: transparent;
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* 🎯 АКТИВНАЯ КНОПКА (СВЕТЛАЯ И ТЕМНАЯ ТЕМЫ) 🎯 */
+.postcards-section button.category-pill.active,
+.postcards-section a.category-pill.active,
+.postcards-section .category-pill.active {
+    background-color: #1A3326 !important;
+    color: #FFFFFF !important;
+    border-color: #0D1A13 !important;
+    font-weight: 600 !important;
+}
+
+.dark-mode .postcards-section button.category-pill.active,
+.dark-mode .postcards-section a.category-pill.active,
+.dark-mode .postcards-section .category-pill.active {
+    background-color: #EAECE8 !important;
+    color: #1A3326 !important;
+    border-color: #94A3B8 !important;
+}
+
+/* --- Сетка: РОАВНО 2 КОЛОНКИ НА ЭКРАНЕ --- */
+.postcards-section .postcards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Жестко 2 колонки */
+    gap: 24px;
+}
+
+.postcards-section .postcard-card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.postcards-section .postcard-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.postcards-section .card-image-wrapper {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--border-color);
+}
+
+.postcards-section .card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.postcards-section .postcard-card:hover .card-image-wrapper img {
+    transform: scale(1.05);
+}
+
+.postcards-section .card-badge {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.postcards-section .card-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.postcards-section .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.postcards-section .card-subtitle {
+    font-size: 0.95rem;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.postcards-section .card-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-main);
+    opacity: 0.85;
+    margin-bottom: 24px;
+    font-weight: 400 !important;
+}
+
+/* Кнопка заказа */
+.postcards-section .promo-main-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 20px;
+    background-color: var(--white);
+    color: var(--text-main) !important;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none !important;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.postcards-section .promo-main-btn:hover,
+.postcards-section .promo-main-btn:active {
+    background-color: transparent;
+    color: var(--accent) !important;
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Блок CTA --- */
+.postcards-section .promo-cta-box {
+    margin-top: 40px;
+    padding: 32px 20px;
+    background-color: var(--card-bg);
+    border: 1px dashed var(--border-color);
+    border-radius: 16px;
+    text-align: center;
+}
+
+.postcards-section .badge-dev {
+    display: inline-block;
+    background: rgba(225, 29, 72, 0.15);
+    color: #f43f5e;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.postcards-section .promo-cta-box h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.postcards-section .promo-cta-box p {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    opacity: 0.7;
+    max-width: 520px;
+    margin: 0 auto 20px auto;
+}
+
+.postcards-section .btn-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    padding: 10px 24px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.postcards-section .empty-state {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--text-main);
+    opacity: 0.7;
+}
+
+/* Мобильная адаптивность (на телефонах переходит в 1 колонку) */
+@media (max-width: 768px) {
+    .postcards-section {
+        padding: 24px 16px;
+        border-radius: 16px;
+    }
+
+    .seo-title {
+        font-size: 0.95rem;
+    }
+
+    .postcards-section .welcome-subtitle {
+        font-size: 1.6rem;
+    }
+
+    .postcards-section .postcards-grid {
+        grid-template-columns: 1fr; /* 1 колонка на моб экранах */
+    }
 }

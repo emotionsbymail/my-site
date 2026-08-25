@@ -91,12 +91,14 @@ if ($lang === 'ru') {
             <h4><?= htmlspecialchars($texts['promo_offer_title'] ?? '') ?></h4>
             <p><?= htmlspecialchars($texts['promo_offer_text'] ?? '') ?></p>
             
-            <a href="https://buymeacoffee.com/emotionsbymail" target="_blank" rel="noopener" class="promo-main-btn">
-                ☕ <?= htmlspecialchars($texts['promo_cta_btn'] ?? '') ?>
-            </a>
+            <!-- Кнопки выбора формата -->
+    <div class="buttons-container">
+        <a href="<?= $url_prefix ?>paper" class="btn btn-paper"><?= htmlspecialchars($texts['btn_paper'] ?? 'Paper Letter') ?></a>
+        <a href="<?= $url_prefix ?>digital" class="btn btn-digital"><?= htmlspecialchars($texts['btn_digital'] ?? 'Digital Support') ?></a>
+    </div>
 
             <p class="promo-security-note">
-                🔒 <?= htmlspecialchars($texts['promo_payment_security'] ?? '') ?>
+                🔒 <?= $texts['promo_payment_security'] ?? '' ?>
             </p>
             <p class="promo-guarantees-note">
                 <?= htmlspecialchars($texts['promo_guarantees'] ?? '') ?>

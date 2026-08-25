@@ -42,12 +42,12 @@ if ($lang === 'ru') {
             <ul>
                 <li>
                     <a href="<?= $prefix ?>paper">
-                        <?= $texts['title_paper'] ?? ($lang === 'ru' ? 'Бумажные письма' : ($lang === 'en' ? 'Paper Letters' : 'Паперові листи')) ?>
+                        <?= $texts['footer_paper'] ?? ($lang === 'ru' ? 'Бумажные письма' : ($lang === 'en' ? 'Paper Letters' : 'Паперові листи')) ?>
                     </a>
                 </li>
                 <li>
                     <a href="<?= $prefix ?>digital">
-                        <?= $texts['title_digital'] ?? ($lang === 'ru' ? 'Email-терапия' : ($lang === 'en' ? 'Share Your Thoughts via Email' : 'Email-терапія')) ?>
+                        <?= $texts['footer_digital'] ?? ($lang === 'ru' ? 'Email-терапия' : ($lang === 'en' ? 'Share Your Thoughts via Email' : 'Email-терапія')) ?>
                     </a>
                 </li>
             </ul>
@@ -75,13 +75,16 @@ if ($lang === 'ru') {
             <p>Instagram: <a href="https://instagram.com/emotionsbymail" target="_blank" rel="noopener">@emotionsbymail</a></p>
         </div>
 
-        <!-- Колонка 4: Акцентный штемпель/Печать качества -->
+        <!-- Колонка 4: Акцентный штемпель/Печать качества (Кнопка «Наверх») -->
         <div class="footer-col footer-stamp-col">
-            <div class="footer-stamp-wrapper" title="Emotions by Mail Quality Stamp">
+            <div class="footer-stamp-wrapper" 
+                 title="Emotions by Mail Quality Stamp" 
+                 onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" 
+                 style="cursor: pointer;">
                 <img src="/assets/images/logo-bimi.svg" alt="Emotions by Mail Stamp" class="footer-stamp-img">
             </div>
         </div>
-    </div>
+    </div> <!-- / .footer-content правильное закрытие колонок -->
 
     <!-- Дисклеймер безопасности -->
     <div class="container">
@@ -94,7 +97,7 @@ if ($lang === 'ru') {
         </div>
     </div>
 
-<!-- Копирайт -->
+    <!-- Копирайт -->
     <div class="footer-bottom">
         <div class="container footer-bottom-content">
             <span>&copy; <?= date('Y') ?> Emotions by Mail</span>

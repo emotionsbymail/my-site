@@ -67,7 +67,7 @@ if (!empty($faqData) && is_array($faqData)):
         <?php foreach ($faqData as $item): ?>
             <details class="faq-item">
                 <summary class="faq-question">
-                    <span><?= htmlspecialchars($item['q'] ?? '') ?></span>
+                    <span><?= $item['q'] ?? '' ?></span>
                     <span class="faq-icon">❯</span>
                 </summary>
                 <div class="faq-answer">
