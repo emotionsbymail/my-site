@@ -456,4 +456,146 @@ document.addEventListener('DOMContentLoaded', function() {
     if (notifyForm) {
         notifyForm.onsubmit = handleNotifySubmit;
     }
+
+    // ==========================================
+    // ЛОГИКА ДЫХАТЕЛЬНОГО ТРЕНАЖЕРА (МОБИЛЬНАЯ АДАПТАЦИЯ И УПРАВЛЕНИЕ КНОПКОЙ)
+    // ==========================================
+    const breathingToggleBtn = document.getElementById('breathingToggleBtn');
+    const breathingCircle = document.getElementById('breathingCircle');
+    const breathingText = document.getElementById('breathingText');
+    const breathingStatus = document.getElementById('breathingStatus');
+
+    if (breathingToggleBtn && breathingCircle && breathingText && breathingStatus) {
+        // Чтение данных через dataset с запасом на getAttribute для мобильных бразуеров
+        const inhaleTxt = breathingText.dataset.inhale || breathingText.getAttribute('data-inhale') || 'Вдох';
+        const pauseTxt = breathingText.dataset.pause || breathingText.getAttribute('data-pause') || 'Пауза';
+        const exhaleTxt = breathingText.dataset.exhale || breathingText.getAttribute('data-exhale') || 'Выдох';
+        
+        const startLabel = breathingToggleBtn.dataset.start || breathingToggleBtn.getAttribute('data-start') || 'Начать';
+        const stopLabel = breathingToggleBtn.dataset.stop || breathingToggleBtn.getAttribute('data-stop') || 'Остановить';
+        
+        const counterTpl = breathingStatus.dataset.counter || breathingStatus.getAttribute('data-counter') || 'Вдох %d из 5';
+        const doneTxt = breathingStatus.dataset.done || breathingStatus.getAttribute('data-done') || 'Отлично! Вы сделали 10 вдохов.';
+
+        let isActive = false;
+        let currentCycle = 0;
+        const maxCycles = 5;
+        let activeTimers = [];
+
+        function clearAllTimers() {
+            activeTimers.forEach(t => clearTimeout(t));
+            activeTimers = [];
+        }
+
+        function addTimeout(fn, delay) {
+            const timer = setTimeout(fn, delay);
+            activeTimers.push(timer);
+            return timer;
+        }
+
+        // Длительности фаз в мс
+        const inhaleTime = 4000;
+        const pauseTime = 2000;
+        const exhaleTime = 4000;
+        const restTime = 2000;
+
+        function runCycle() {
+            if (!isActive) return;
+
+            currentCycle++;
+            
+            if (currentCycle > maxCycles) {
+                stopBreathing(true);
+                return;
+            }
+
+            // Обновляем счетчик под кругом
+            breathingStatus.textContent = counterTpl.replace('%d', currentCycle);
+
+            // 1. Вдох
+            breathingCircle.classList.add('inhale');
+            breathingCircle.classList.remove('exhale', 'pause');
+            breathingText.textContent = inhaleTxt;
+
+            // 2. Пауза после вдоха
+            addTimeout(() => {
+                if (!isActive) return;
+                breathingCircle.classList.add('pause');
+                breathingText.textContent = pauseTxt;
+
+                // 3. Выдох
+                addTimeout(() => {
+                    if (!isActive) return;
+                    breathingCircle.classList.remove('inhale', 'pause');
+                    breathingCircle.classList.add('exhale');
+                    breathingText.textContent = exhaleTxt;
+
+                    // 4. Пауза после выдоха / Переход к следующему циклу
+                    addTimeout(() => {
+                        if (!isActive) return;
+                        breathingCircle.classList.remove('exhale');
+                        breathingCircle.classList.add('pause');
+                        breathingText.textContent = pauseTxt;
+
+                        addTimeout(() => {
+                            if (isActive) runCycle();
+                        }, restTime);
+
+                    }, exhaleTime);
+
+                }, pauseTime);
+
+            }, inhaleTime);
+        }
+
+        function startBreathing() {
+            isActive = true;
+            currentCycle = 0;
+            breathingToggleBtn.textContent = stopLabel;
+            breathingToggleBtn.classList.add('active');
+
+            if (window._paq) {
+                _paq.push(['trackEvent', 'Breathing Exercise', 'Start']);
+            }
+
+            runCycle();
+        }
+
+        function stopBreathing(isFinished = false) {
+            isActive = false;
+            clearAllTimers();
+            
+            breathingCircle.className = 'breathing-circle';
+            breathingText.textContent = '';
+            breathingToggleBtn.textContent = startLabel;
+            breathingToggleBtn.classList.remove('active');
+
+            if (isFinished) {
+                breathingStatus.textContent = doneTxt;
+                if (window._paq) {
+                    _paq.push(['trackEvent', 'Breathing Exercise', 'Completed']);
+                }
+            } else {
+                breathingStatus.textContent = '';
+                if (window._paq) {
+                    _paq.push(['trackEvent', 'Breathing Exercise', 'Stop']);
+                }
+            }
+        }
+
+        function handleToggle(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            if (isActive) {
+                stopBreathing(false);
+            } else {
+                startBreathing();
+            }
+        }
+
+        breathingToggleBtn.addEventListener('click', handleToggle);
+    }
 });

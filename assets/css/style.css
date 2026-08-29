@@ -81,7 +81,7 @@ p, h1, h2, h3, h4, h5, h6, span, a {
 }
 
 /*==================================================
-    3. ХЕДЕР (ШАПКА)
+    3. ХЕДЕР (ШАПКА) И НАВИГАЦИЯ
 ==================================================*/
 .main-header {
     background-color: var(--white);
@@ -210,26 +210,161 @@ p, h1, h2, h3, h4, h5, h6, span, a {
     transform: scale(1.15);
 }
 
-/* Бургер-кнопка */
+/* На десктопе кнопка бургер скрыта */
 .burger-menu {
     display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 26px;
-    height: 19px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 101;
 }
 
-.burger-menu span {
-    width: 100%;
-    height: 2px;
-    background-color: var(--text-main);
-    border-radius: 2px;
-    transition: all 0.3s ease;
+/* ==========================================
+   МОБИЛЬНАЯ НАВИГАЦИЯ И БУРГЕР-МЕНЮ (≤ 768px)
+   ========================================== */
+@media (max-width: 768px) {
+
+    /* 1. ПЛАВАЮЩАЯ БУРГЕР-КНОПКА В ПРАВОМ НИЖНЕМ УГЛУ */
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        
+        position: fixed;
+        bottom: 24px;
+        right: 20px;
+        top: auto;
+        left: auto;
+        z-index: 1000;
+        
+        width: 50px;
+        height: 50px;
+        padding: 14px;
+        border-radius: 50%;
+        cursor: pointer;
+        
+        /* Светлая тема */
+        background-color: var(--white);
+        border: 1px solid var(--border-color);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+        transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    .burger-menu:active {
+        transform: scale(0.92);
+    }
+
+    /* Полоски бургера */
+    .burger-menu span {
+        width: 100%;
+        height: 2px;
+        background-color: var(--text-main);
+        border-radius: 2px;
+        transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+    }
+
+    /* Анимация крестика */
+    .burger-menu.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    .burger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .burger-menu.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Тёмная тема для кнопки */
+    .dark-mode .burger-menu {
+        background-color: #1e2622;
+        border-color: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+    }
+
+    /* 2. ВЫЕЗЖАЮЩАЯ СНИЗУ ШТОРКА (BOTTOM SHEET) */
+    .nav-wrapper {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: auto;
+        bottom: -100%; /* Скрываем под экраном */
+        
+        width: 100%;
+        height: auto;
+        
+        background-color: var(--white);
+        border-top-left-radius: 24px;
+        border-top-right-radius: 24px;
+        box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25);
+        
+        padding: 16px 20px 40px 20px;
+        z-index: 999;
+        
+        transform: none;
+        transition: bottom 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* Активное состояние — выезд снизу */
+    .nav-wrapper.active {
+        bottom: 0;
+    }
+
+    /* Индикатор-полоска сверху шторки */
+    .nav-wrapper::before {
+        content: '';
+        width: 36px;
+        height: 4px;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+        margin-bottom: 4px;
+    }
+
+    /* Внутренние элементы навигации */
+    .main-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        width: 100%;
+    }
+
+    .main-nav .nav-link {
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 6px 0;
+    }
+
+    .nav-divider,
+    .lang-divider {
+        display: none;
+    }
+
+    .lang-switcher {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        font-size: 1rem;
+    }
+
+    .lang-btn {
+        font-size: 1.05rem;
+        padding: 4px 10px;
+    }
+
+    /* Тёмная тема для шторки */
+    .dark-mode .nav-wrapper {
+        background-color: #1a221e;
+        box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .dark-mode .nav-wrapper::before {
+        background-color: rgba(255, 255, 255, 0.25);
+    }
 }
 
 /*==================================================
@@ -276,11 +411,14 @@ p, h1, h2, h3, h4, h5, h6, span, a {
     line-height: 1.6;
 }
 
+/* Контейнер для кнопок (Мобильная версия по умолчанию — в столбик) */
 .buttons-container {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
 }
 
 .btn {
@@ -295,6 +433,9 @@ p, h1, h2, h3, h4, h5, h6, span, a {
     transition: all 0.25s ease;
     cursor: pointer;
     white-space: nowrap;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 /* Бумажное письмо / Кнопка отправки */
@@ -334,9 +475,10 @@ p, h1, h2, h3, h4, h5, h6, span, a {
     width: 100%;
 }
 
+/* По умолчанию на мобильных устройствах — колонка */
 .welcome-inline-form {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 12px;
@@ -346,8 +488,6 @@ p, h1, h2, h3, h4, h5, h6, span, a {
 }
 
 .inline-input {
-    flex: 1;
-    min-width: 0;
     width: 100%;
     padding: 14px 20px;
     border-radius: 30px;
@@ -356,6 +496,7 @@ p, h1, h2, h3, h4, h5, h6, span, a {
     color: var(--text-main);
     font-size: 0.98rem;
     outline: none;
+    box-sizing: border-box;
     transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -369,8 +510,38 @@ p, h1, h2, h3, h4, h5, h6, span, a {
 }
 
 .inline-submit-btn {
+    width: 100%;
     padding: 14px 26px;
     flex-shrink: 0;
+}
+
+/* Переключение формы в строчный режим для экранов от 576px */
+@media (min-width: 576px) {
+    .welcome-inline-form {
+        flex-direction: row;
+    }
+
+    .inline-input {
+        flex: 1 1 auto;
+        width: auto;
+    }
+
+    .inline-submit-btn {
+        width: auto;
+    }
+}
+
+/* Десктопная версия: экраны от 768px (Кнопки встают РЯДОМ) */
+@media (min-width: 768px) {
+    .buttons-container {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .buttons-container .btn {
+        flex: 1;
+        width: auto;
+    }
 }
 
 /*==================================================
@@ -449,6 +620,7 @@ p, h1, h2, h3, h4, h5, h6, span, a {
     font-size: 1.15rem;
     color: var(--accent);
     margin-bottom: 12px;
+    text-align: center;
 }
 
 .promo-divider {
@@ -648,6 +820,12 @@ p, h1, h2, h3, h4, h5, h6, span, a {
     align-items: center;
     justify-content: center;
     cursor: default;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-stamp-wrapper:hover {
+    transform: translateY(-4px) scale(1.05);
+    opacity: 0.9;
 }
 
 .footer-stamp-img {
@@ -694,15 +872,6 @@ html.dark-mode .footer-stamp-wrapper:hover .footer-stamp-img,
     opacity: 0.8;
 }
 
-.footer-stamp-wrapper {
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.footer-stamp-wrapper:hover {
-    transform: translateY(-4px) scale(1.05);
-    opacity: 0.9;
-}
-
 .stamp-scroll-top {
     cursor: pointer;
     display: inline-block; /* Сохраняет размеры контейнера */
@@ -713,69 +882,12 @@ html.dark-mode .footer-stamp-wrapper:hover .footer-stamp-img,
     transform: translateY(-4px) scale(1.05);
     opacity: 0.9;
 }
-
 /*==================================================
-    6. АДАПТИВНОСТЬ
+    6. ОБЩАЯ АДАПТИВНОСТЬ И СЕТКИ (≤ 768px)
 ==================================================*/
 @media (max-width: 768px) {
     .page-content {
         padding: 30px 0;
-    }
-
-    .burger-menu {
-        display: flex;
-    }
-
-    .nav-wrapper {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        flex-direction: column;
-        align-items: center;
-        padding: 25px 0;
-        gap: 20px;
-        border-bottom: 1px solid var(--border-color);
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
-        display: none;
-    }
-
-    .nav-wrapper.active {
-        display: flex;
-    }
-
-    .main-nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-
-    /* Скрытие разделителей "|" в навигации на мобильных */
-    .nav-divider {
-        display: none;
-    }
-
-    .main-nav .nav-link {
-        font-size: 1.05rem;
-        padding-bottom: 4px;
-    }
-
-    /* Вертикальное отображение переключателя языков на мобильных */
-    .lang-switcher {
-        flex-direction: column;
-        gap: 12px;
-        align-items: center;
-    }
-
-    /* Скрытие разделителей "|" на мобильных */
-    .lang-divider {
-        display: none;
-    }
-
-    .lang-btn {
-        font-size: 1.1rem;
-        padding: 4px 10px;
     }
 
     .welcome-section {
@@ -795,14 +907,18 @@ html.dark-mode .footer-stamp-wrapper:hover .footer-stamp-img,
         font-size: 1.05rem;
     }
 
-    .buttons-container {
+    .welcome-inline-form {
         flex-direction: column;
         gap: 12px;
     }
 
-    .btn {
+    .inline-input {
         width: 100%;
-        text-align: center;
+        min-width: 100%;
+    }
+
+    .inline-submit-btn {
+        width: 100%;
     }
 
     .about-service-section {
@@ -854,26 +970,8 @@ html.dark-mode .footer-stamp-wrapper:hover .footer-stamp-img,
     }
 }
 
-/* Мобильная подгонка инлайновой формы */
-@media (max-width: 768px) {
-    .welcome-inline-form {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .inline-input {
-        width: 100%;
-        min-width: 100%; /* Гарантирует, что инпут не скомкается */
-    }
-
-    .inline-submit-btn {
-        width: 100%;
-    }
-}
-
-/* Дополнительные исправления для узких экранов (≤ 480px, Samsung S8 и т.п.) */
+/* Дополнительные исправления для узких экранов (≤ 480px) */
 @media (max-width: 480px) {
-    /* Логотип + плашка бейджа в футере */
     .footer-col:first-child {
         display: flex;
         flex-direction: column;
@@ -889,9 +987,8 @@ html.dark-mode .footer-stamp-wrapper:hover .footer-stamp-img,
         flex-wrap: wrap;
     }
 
-    /* Нижний копирайт без рваных переносов */
     .copyright-divider {
-        display: none; /* Убираем разделитель "|" */
+        display: none;
     }
 
     .footer-bottom {
@@ -909,7 +1006,7 @@ html.dark-mode .footer-stamp-wrapper:hover .footer-stamp-img,
     }
 
     .footer-bottom span {
-        white-space: nowrap; /* Не даёт фразе "Все права защищены" разорваться на 2 строки */
+        white-space: nowrap;
     }
 }
 
@@ -948,13 +1045,13 @@ a.emotion-btn:hover {
     justify-content: center !important;
     padding: 14px 10px !important;
     border-radius: 14px !important;
-    text-decoration: none !important; /* Убирает синее подчеркивание */
-    color: var(--text-main) !important; /* Убирает синий цвет ссылки */
+    text-decoration: none !important;
+    color: var(--text-main) !important;
     background-color: var(--white) !important;
     border: 1px solid var(--border-color) !important;
     box-shadow: 0 2px 6px rgba(0,0,0,0.03);
     -webkit-appearance: none;
-    -webkit-tap-highlight-color: transparent; /* Убирает серое/синее выделение при тапе на мобилке */
+    -webkit-tap-highlight-color: transparent;
     transition: all 0.25s ease;
 }
 
@@ -1001,10 +1098,10 @@ a.emotion-neutral .emotion-icon {
     font-size: 1.3rem;
 }
 
-/* Мобильная адаптация */
+/* Мобильная адаптация эмоций */
 @media (max-width: 480px) {
     .emotions-grid {
-        grid-template-columns: repeat(2, 1fr) !important; /* Ровно 2 красивых колонки на телефонах */
+        grid-template-columns: repeat(2, 1fr) !important;
         gap: 10px !important;
     }
     
@@ -1072,7 +1169,7 @@ a.emotion-neutral .emotion-icon {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* 1. Затемняющий фон на весь экран при копировании */
+/* Затемняющий фон на весь экран при копировании */
 .copy-overlay {
     position: fixed;
     top: 0;
@@ -1091,7 +1188,7 @@ a.emotion-neutral .emotion-icon {
     transition: opacity 0.2s ease;
 }
 
-/* 2. Центральное модальное окно */
+/* Центральное модальное окно */
 .copy-modal {
     background-color: var(--white);
     color: var(--text-main);
@@ -1116,7 +1213,7 @@ a.emotion-neutral .emotion-icon {
     font-weight: 600;
 }
 
-/* 3. Состояние активации (класс добавляется через JS) */
+/* Состояние активации */
 .copy-overlay.show {
     opacity: 1;
     pointer-events: auto;
@@ -1131,7 +1228,7 @@ a.emotion-neutral .emotion-icon {
 ==================================================*/
 .faq-section {
     margin-top: 50px;
-    padding: 20px 20px; /* Добавили 20px отступов по бокам */
+    padding: 20px 20px;
     width: 100%;
 }
 
@@ -1171,14 +1268,13 @@ a.emotion-neutral .emotion-icon {
     font-weight: 600;
     color: var(--text-main);
     cursor: pointer;
-    list-style: none; /* Убирает дефолтную стрелочку браузера */
+    list-style: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     user-select: none;
 }
 
-/* Убирает стрелочку в Safari */
 .faq-question::-webkit-details-marker {
     display: none;
 }
@@ -1189,7 +1285,6 @@ a.emotion-neutral .emotion-icon {
     opacity: 0.6;
 }
 
-/* Поворот стрелочки при открытии */
 .faq-item[open] .faq-icon {
     transform: rotate(90deg);
     color: var(--accent);
@@ -1203,15 +1298,12 @@ a.emotion-neutral .emotion-icon {
     color: var(--text-main);
     opacity: 0.85;
     border-top: 1px dashed transparent;
+    white-space: pre-line;
 }
 
 .faq-item[open] .faq-answer {
     border-top-color: var(--border-color);
     padding-top: 12px;
-}
-/* Сохранение переносов и отступы для списков внутри FAQ */
-.faq-answer {
-    white-space: pre-line; /* Чтобы работали обычные переносы строк без HTML-тегов */
 }
 
 .faq-answer p {
@@ -1229,7 +1321,6 @@ a.emotion-neutral .emotion-icon {
     line-height: 1.5;
 }
 
-/* Отступ для вложенных списков */
 .faq-answer li ul,
 .faq-answer li ol {
     margin-top: 6px;
@@ -1426,6 +1517,8 @@ a.bmc-button-wrapper {
     text-decoration: none !important;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: 8px;
     transition: all 0.25s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -1929,4 +2022,448 @@ p a:focus-visible,
     .postcards-section .postcards-grid {
         grid-template-columns: 1fr; /* 1 колонка на моб экранах */
     }
+}
+/*==================================================
+    Формат поддержки
+====================================================*/
+.formats-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  color: #2d3748;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #718096;
+  margin-bottom: 32px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.format-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.format-card.highlight {
+  border: 2px solid #007bff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.card-item {
+  margin-bottom: 16px;
+}
+
+.item-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.card-footer {
+  margin-top: 24px;
+}
+
+.btn-full {
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+/*==================================================
+     КАРТОЧКИ ФОРМАТОВ ПОДДЕРЖКИ
+====================================================*/
+.formats-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.formats-section .section-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.formats-section .section-subtitle {
+    text-align: center;
+    font-size: 1.05rem;
+    color: var(--text-main);
+    opacity: 0.85;
+    margin-bottom: 35px;
+    line-height: 1.5;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    width: 100%;
+}
+
+.format-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease;
+}
+
+.format-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* Выделенная акцентная карточка */
+.format-card.highlight {
+    border: 2px solid var(--accent);
+    box-shadow: 0 8px 25px rgba(var(--accent-rgb), 0.12);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+}
+
+/* Бейджи стоимости в шапке карточки */
+.badge {
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.badge.free {
+    background-color: rgba(45, 76, 59, 0.1);
+    color: var(--dark);
+    border: 1px solid var(--border-color);
+}
+
+.dark-mode .badge.free {
+    background-color: rgba(234, 236, 232, 0.1);
+    color: var(--text-main);
+}
+
+.badge.paid {
+    background-color: rgba(var(--accent-rgb), 0.15);
+    color: var(--link-color);
+    border: 1px solid var(--accent);
+}
+
+/* Содержимое карточки */
+.card-body {
+    flex: 1;
+}
+
+.card-item {
+    margin-bottom: 18px;
+}
+
+.card-item:last-child {
+    margin-bottom: 0;
+}
+
+.item-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--accent);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.card-item p {
+    font-size: 0.98rem;
+    color: var(--text-main);
+    opacity: 0.9;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Подвал карточки с кнопками */
+.card-footer {
+    margin-top: 28px;
+}
+
+.btn-full {
+    width: 100%;
+    text-align: center;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 2px solid var(--dark);
+}
+
+.btn-outline:hover,
+.btn-outline:active {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: var(--dark);
+    color: var(--btn-text) !important;
+    border: 2px solid var(--dark);
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .formats-section {
+        margin: 25px auto;
+        padding: 0 16px;
+    }
+
+    .formats-section .section-title {
+        font-size: 1.45rem;
+    }
+
+    .formats-section .section-subtitle {
+        font-size: 0.98rem;
+        margin-bottom: 25px;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .format-card {
+        padding: 20px 18px;
+    }
+
+    .card-header h3 {
+        font-size: 1.15rem;
+    }
+}
+/*==================================================
+    БЛОК ДЫХАТЕЛЬНОГО ТРЕНАЖЕРА (АНТИСТРЕСС)
+==================================================*/
+.anti-stress-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    margin: 30px 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.dark-mode .anti-stress-box {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.anti-stress-title {
+    margin-bottom: 20px;
+    color: var(--text-main);
+    font-size: 1.05rem;
+    font-weight: 600;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+/* Контейнер для круга */
+.breathing-circle-wrapper {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px auto;
+}
+
+/* Сам круг */
+.breathing-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(var(--accent-rgb), 0.15);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    transform: scale(0.7);
+    opacity: 0.5;
+    /* Плавные переходы размеров под фазы в JS */
+    transition: transform 4s ease-in-out, opacity 4s ease-in-out;
+}
+
+/* Состояния круга, управляемые из JS */
+.breathing-circle.inhale {
+    transform: scale(1.15);
+    opacity: 0.95;
+    transition-duration: 4s; /* Вдох */
+}
+
+.breathing-circle.pause {
+    /* На паузе сохраняется текущий размер */
+    transition-duration: 2s; /* Пауза */
+}
+
+.breathing-circle.exhale {
+    transform: scale(0.7);
+    opacity: 0.5;
+    transition-duration: 4s; /* Выдох */
+}
+
+/* Текст внутри круга */
+.breathing-text {
+    position: relative;
+    z-index: 2;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Контейнер для кнопки */
+.breathing-controls {
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Стилизация кнопки Start/Stop (для классов .btn-breathing-start и .breathing-toggle-btn) */
+.btn-breathing-start,
+.breathing-toggle-btn {
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 12px 32px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #ffffff;
+    background-color: var(--accent, #4a7c59);
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+    user-select: none;
+}
+
+/* Эффект при наведении */
+.btn-breathing-start:hover,
+.breathing-toggle-btn:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Эффект при клике */
+.btn-breathing-start:active,
+.breathing-toggle-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Состояние, когда тренажер активен (Кнопка «Остановить») */
+.btn-breathing-start.active,
+.breathing-toggle-btn.active {
+    background-color: #d9534f;
+}
+
+/* Подсказка и статус под тренажером */
+.anti-stress-hint,
+.breathing-status {
+    margin-top: 15px;
+    font-size: 0.88rem;
+    color: var(--text-sub, #666);
+    font-style: italic;
+    text-align: center;
+    line-height: 1.4;
+    opacity: 0.85;
+    min-height: 1.4em;
+}
+.breathing-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(var(--accent-rgb), 0.15);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    transform: scale(0.7);
+    opacity: 0.5;
+    will-change: transform, opacity; /* Аппаратное ускорение на телефонах */
+    transition: transform 4s ease-in-out, opacity 4s ease-in-out;
 }

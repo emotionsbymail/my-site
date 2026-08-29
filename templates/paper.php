@@ -24,8 +24,8 @@ $texts = $t;
 ?>
 
 <section class="welcome-section">
-    <p class="seo-title"><?=  $t['paper_seo_title'] ?? '' ?></p>
-    <h1 class="greeting-text"><?= htmlspecialchars($t['welcome_heading'] ?? $t['paper_title'] ?? '') ?></h1>
+    <p class="seo-title"><?= $t['paper_seo_title'] ?? '' ?></p>
+    <h1 class="greeting-text"><?= $t['welcome_heading'] ?? $t['paper_title'] ?? '' ?></h1>
     <p class="welcome-subtitle">
         <?= $t['welcome_subtitle'] ?? $t['paper_desc'] ?? '' ?>
     </p>
@@ -71,7 +71,7 @@ if (!empty($faqData) && is_array($faqData)):
                     <span class="faq-icon">❯</span>
                 </summary>
                 <div class="faq-answer">
-                    <p><?= $item['a'] ?? '' ?></p>
+                    <?= $item['a'] ?? '' ?>
                 </div>
             </details>
         <?php endforeach; ?>
@@ -115,12 +115,13 @@ if (!empty($faqData) && is_array($faqData)):
         </div>
     </div>
 </div>
+
 <!-- Модальный оверлей с центральным уведомлением -->
 <div id="copyOverlay" class="copy-overlay">
     <div class="copy-modal">
         <div class="copy-icon">✨</div>
         <div class="copy-message">
-            <?= htmlspecialchars($texts['toast_copied'] ?? 'Адрес скопирован!') ?>
+            <?= htmlspecialchars($texts['toast_copied'] ?? '') ?>
         </div>
     </div>
 </div>

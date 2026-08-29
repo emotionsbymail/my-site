@@ -3,295 +3,344 @@
 
 return [
     // ==========================================
-    // 1. Header & Navigation (Навигация)
+    // 1. Header & Navigation
     // ==========================================
-    'title_home'        => 'Safe Space for Emotional Support and Anonymous Letters | Emotions by Mail',
-    'title_paper'       => 'Physical Mail Service & Heartfelt Gifts | Emotions by Mail',
-    'title_digital'     => 'Anonymous Email Support & Psychological Relief | Emotions by Mail',
-    'title_payment'     => 'Payment Instructions for Emotions by Mail Services',
+    'title_home'        => 'Gentle Emotional Support & Anonymous Letters | Emotions by Mail',
+    'title_paper'       => 'Physical Letters & Heartfelt Gifts | Emotions by Mail',
+    'title_digital'     => 'Anonymous Email Support & Emotional Relief | Emotions by Mail',
+    'title_payment'     => 'Payment Guide | Emotions by Mail',
     'nav_paper'         => 'Paper Letters',
     'nav_digital'       => 'Email Support',
     'nav_about'         => 'About Us',
 
     // ==========================================
-    // 2. Home Page Hero Section (Главный баннер)
+    // 2. Home Page Hero Section
     // ==========================================
     'seo_title'         => 'Gentle Emotional Support Service',
-    'hero_greeting'     => 'Truly Warm and Gentle Emotional Support',
-    'hero_subtitle'     => 'A safe space to anonymously express yourself via email or receive a genuine paper letter when you need care, understanding, and emotional warmth.',
-    'choose_format'     => 'Choose the support format that fits you best right now:',
+    'hero_greeting'     => 'Truly Warm and Caring Emotional Support',
+    'hero_subtitle'     => 'A safe space to express your feelings anonymously via email or receive a heartfelt physical letter when you need comfort, understanding, and warmth.',
+    'choose_format'     => 'Choose the type of support that feels right for you today:',
     'btn_paper'         => 'Get a Paper Letter',
-    'btn_digital'       => 'Vent via Email',
+    'btn_digital'       => 'Share via Email',
 
+// ==========================================
+    // 2.1. Breathing Exercise
     // ==========================================
-    // 3. Service Block (Смысловой SEO-блок)
+    'breathe_title'     => 'Take 5 deep breaths along with the circle:',
+    'breathe_start'     => 'Start',
+    'breathe_stop'      => 'Stop',
+    'breathe_inhale'    => 'Inhale',
+    'breathe_pause'     => 'Pause',
+    'breathe_exhale'    => 'Exhale',
+    'breathe_counter'   => 'Breath %d of 5',
+    'breathe_done'      => 'Great job! You’ve completed 5 breaths. How do you feel?',
+    
     // ==========================================
-    'promo_tagline'          => 'Preserve the Warmth of Meaningful Words — Forever',
-    'promo_price_btn'        => 'Try Support from €5',
+    // 3. Service Block (SEO & Brand Story)
+    // ==========================================
+    'promo_tagline'          => 'Preserve the warmth of meaningful words — forever',
+    'promo_price_btn'        => 'Experience Support from €5',
     'promo_intro_title'      => 'A space where you are truly listened to, heard, and understood',
-    'promo_intro_text1'      => 'A challenging period in life, burnout, searching for inner strength, or a desire to share intimate thoughts — everyone needs a kind word at times. Loneliness and stress become heavier when there is no one to trust with your feelings.',
-    'promo_intro_text2'      => 'Loved ones aren\'t always ready to dive into our experiences, and starting psychotherapy can feel premature or like too big of a step. Emotions by Mail was created as a gentle support bridge between heavy thoughts and peace of mind.',
-    'promo_about_heading'    => 'Two ways to feel support and care',
-    'promo_about_desc'       => 'We designed our service around two distinct needs: a quick online dialogue for anonymous emotional relief or a tangible paper letter that stays with you as a source of warmth.',
-    'promo_choose_format'    => '<b>Choose the suitable format for you:</b>',
-    'promo_success'          => 'You no longer have to face your struggles alone.',
-    'promo_why_title'        => 'Why people choose Emotions&nbsp;by&nbsp;Mail',
-    'promo_feat_1'           => '<b>"Digital Warmth" (Email Support):</b> an ideal anonymous format to vent quickly, unload anxiety via email, and receive empathetic feedback from a caring listener.',
-    'promo_feat_2'           => '<b>"Tactile Warmth" (Paper Letters):</b> a postcard on designer paper sealed with real wax. A tangible comfort for yourself or a touching gift for a loved one.',
-    'promo_feat_3'           => '<b>Complete Acceptance:</b> express yourself 100% sincerely — without censorship, shame, judgment, or criticism.',
-    'promo_feat_4'           => '<b>Human Touch:</b> no bots or standard templates — every response is created individually tailored to your personal story.',
-    'promo_feat_5'           => '<b>Emotional Anchor:</b> physical letters can be kept in a keepsake box and reread during tough moments as a source of strength.',
-    'promo_feat_6'           => '<b>Confidentiality:</b> your stories and feelings remain strictly confidential between us.',
-    'promo_simplicity_title' => 'Designed for your peace of mind',
-    'promo_simplicity_text1' => 'You don\'t need to pick the perfect words or prepare for difficult conversations. We have removed all unnecessary stress.',
-    'promo_simplicity_text2' => 'The process is as simple as possible: choose an emotion, describe your situation in free form, or order a physical letter — and await a response crafted with sincere care for you.',
-    'promo_quote'            => 'If you have ever caught yourself thinking, "I just need someone to listen to me and support me," — this is a wonderful opportunity to take the first step toward emotional well-being.',
-    'promo_offer_title'      => 'Which support format suits you best right now?',
-    'promo_offer_text'       => 'Clear your mind of heavy thoughts via Email or gift yourself and your loved ones the joy of receiving a real paper letter.',
+    'promo_intro_text1'      => 'Navigating a challenging phase, burnout, seeking inner balance, or simply wanting to share your deepest thoughts — everyone needs a gentle word. Loneliness and stress grow heavier when there is no safe place to share your emotions.',
+    'promo_intro_text2'      => 'Loved ones aren’t always equipped to hold space for our worries, and therapy might feel like a big or daunting step right now. Emotions by Mail was created as a gentle bridge between heavy thoughts and peace of mind.',
+    'promo_about_heading'    => '✉️ Two Ways to Feel Supported and Cared For',
+    'promo_about_desc'       => 'We designed our service around two distinct needs: express email support for quick emotional unburdening, and an aesthetic physical letter delivered to your mailbox.',
+    'promo_choose_format'    => '<b>Choose the format that suits you best:</b>',
+    'promo_success'   => '✅ You no longer have to face your struggles alone.',
+    'promo_why_title' => '💡 Why choose Emotions&nbsp;by&nbsp;Mail',
+    'promo_feat_1'    => '✉️ <b>“Digital&nbsp;Warmth”</b> (Email&#8209;support): the perfect anonymous format to quickly vent, ease your anxiety via email, and receive a thoughtful response from a caring listener.',
+    'promo_feat_2'    => '🤝 <b>“Tactile&nbsp;Warmth”</b> (Paper&nbsp;letters): a postcard made of designer paper sealed with real wax. Tangible comfort for yourself or a touching gift for someone close.',
+    'promo_feat_3'    => '☕ <b>Complete Acceptance:</b> express yourself 100% honestly — without censorship, shame, judgement, or criticism.',
+    'promo_feat_4'    => '🎯 <b>Human Connection:</b> no bots or templates — every letter is uniquely crafted for your story.',
+    'promo_feat_5'    => '⚓ <b>Emotional Anchor:</b> physical letters can be kept in a memory box and re-read in difficult moments as a source of strength.',
+    'promo_feat_6'    => '🔇 <b>Confidentiality:</b> your stories and feelings stay strictly between us.',
+    'promo_simplicity_title' => 'Designed for Your Peace of Mind',
+    'promo_simplicity_text1' => 'You don’t need to compose the perfect words or prepare for difficult conversations. We’ve removed all unnecessary friction.',
+    'promo_simplicity_text2' => 'The process is seamless: choose an emotion, write freely about what’s on your mind, or request a physical letter — and receive a response created with genuine care.',
+    'promo_quote'            => 'If you’ve ever caught yourself thinking, “I just need someone to listen and support me,” this is a beautiful place to take that first step.',
+    'promo_offer_title'      => 'Which format feels right for you today?',
+    'promo_offer_text'       => 'Unburden your mind over Email, or give yourself and your loved ones the joy of receiving a real paper letter.',
     'promo_cta_btn'          => 'Order Support via Buy Me a Coffee',
-    'promo_payment_security' => 'Safe Space by Emotions&nbsp;by&nbsp;Mail',
-    'promo_guarantees'       => 'Full Anonymity • Timely Response • Care in Every Word',
+    'promo_payment_security' => '🔒 A Safe Space by &nbsp;Emotions&nbsp;by&nbsp;Mail',
+    'promo_guarantees'       => 'Complete Anonymity • Timely Responses • Care in Every Word',
 
     // ==========================================
-    // 4. Paper Page (Страница "Тактильное тепло")
+    // 4. Paper Page ("Tangible Warmth")
     // ==========================================
-    'paper_seo_title' => 'Paper Letters Service •&nbsp;Tactile&nbsp;Warmth',
-    'paper_title'     => 'A real letter sealed with wax that you can hold in your hands',
-    'paper_desc'      => 'Tangible emotional support and an aesthetic gift. A beautiful postcard made of thick designer paper with meaningful, supportive words, sealed with real wax and delivered straight to your mailbox. Send one special letter for a memorable date or set up a regular subscription with caring messages once a week.',
+    'paper_seo_title' => 'Paper Letter Service •&nbsp;Tangible&nbsp;Warmth',
+    'paper_title'     => 'A real, wax-sealed letter you can hold in your hands',
+    'paper_desc'      => 'Tangible emotional support and a heartfelt gift for you and your loved ones. A beautiful postcard made of thick designer paper with meaningful, caring words, sealed with real wax and delivered straight to the mailbox. Choose a ready-made message for an important moment: support for students before exams, warm words during an illness, gentle comfort during times of loss, or daily motivation through burnout. It is a special way to show care for someone close or to create a personal self-care ritual.',
     'btn_order_paper' => 'Order a Letter',
 
     // ==========================================
-    // 5. Modal & Launch Notification (Предзаказ)
+    // 5. Modal & Pre-order Launch Notification
     // ==========================================
-    'welcome_seo_title'       => 'Paper Letters Service •&nbsp;Tactile&nbsp;Warmth',
-    'welcome_heading'         => 'A real letter sealed with wax that you can hold in your hands',
-    'welcome_subtitle'        => 'Tangible support and a soulful gift for you and your loved ones. A beautiful postcard made of thick designer paper with important, gentle words, sealed with real wax and delivered directly to your mailbox. Send one special letter for a memorable date or set up a regular subscription with caring messages once a week.',
+    'welcome_seo_title'       => 'Paper Letter Service •&nbsp;Tangible&nbsp;Warmth',
+    'welcome_heading'         => 'A real, wax-sealed letter you can hold in your hands',
+    'welcome_subtitle'        => 'Tangible emotional support and a heartfelt gift for you and your loved ones. A beautiful postcard made of thick designer paper with meaningful, caring words, sealed with real wax and delivered straight to the mailbox. Choose a ready-made message for an important moment: support for students before exams, warm words during an illness, gentle comfort during times of loss, or daily motivation through burnout. It is a special way to show care for someone close or to create a personal self-care ritual.',
     'btn_notify_launch'       => 'Notify Me on Launch Day',
-    'welcome_bonus_text_1'    => "💡 The service is under development.\nWe are finalizing the last details. Leave your email, and we will write to you on launch day.",
-    'welcome_bonus_text'      => '🎁 Subscribe now and get a <b>personal discount</b> on your first order on launch day',
+    'welcome_bonus_text_1'    => "💡 Our service is currently in development.\nWe are adding the final touches. Leave your email, and we’ll notify you the moment we launch.",
+    'welcome_bonus_text'      => '🎁 Subscribe now to receive an <b>exclusive discount</b> on your first order when we go live.',
 
     'modal_title'              => 'Be Among the First',
-    'modal_desc'               => 'Leave your email, and we will contact you on launch day, along with sending a personal discount for your first order.',
-    'input_email_placeholder' => 'Your Email',
-    'btn_submit'              => 'Waiting for Launch',
+    'modal_desc'               => 'Leave your email to get notified on launch day and receive an exclusive discount on your first order.',
+    'input_email_placeholder'=> 'Your Email',
+    'btn_submit'              => 'Keep Me Updated',
 
-    'modal_success_title'      => 'Thank You!',
-    'modal_success_desc1'      => 'You will be among the first to know about the launch.',
-    'modal_success_desc2'      => 'We are sending a confirmation to:',
-    'modal_success_spam'       => 'Please check your inbox<br>(and your Spam folder if the email doesn\'t arrive right away).',
+    'modal_success_title'     => 'Thank You!',
+    'modal_success_desc1'     => 'You’ll be among the first to know when we open.',
+    'modal_success_desc2'     => 'We’ve sent a confirmation to:',
+    'modal_success_spam'      => '<p>Please check your inbox</p><p>(and spam folder, just in case).</p>',
 
-    'modal_already_title'      => 'You Are Already Subscribed!',
-    'modal_already_desc'       => 'We will send a notification to your email as soon as everything is ready.',
+    'modal_already_title'     => 'You’re Already Subscribed!',
+    'modal_already_desc'      => 'We’ll send an update to your email as soon as everything is ready.',
 
     // ==========================================
-    // 6. Digital Page (Страница "Цифровое тепло")
+    // 6. Digital Page ("Digital Warmth")
     // ==========================================
     'digital_seo_title' => 'Anonymous Email Support •&nbsp;Digital&nbsp;Warmth',
-    'digital_title'     => 'A safe space to anonymously express yourself via email',
-    'digital_desc'      => 'An online psychological relief format for those who need to release anxiety, unpack heavy thoughts, and understand themselves better. Write about whatever hurts — we will listen gently without judgment or evaluation, help you view the situation from another perspective, and find inner strength.',
+    'digital_title'     => 'A safe space to share your thoughts anonymously via&nbsp;email',
+    'digital_desc'      => 'An online space for emotional expression when you need to ease anxiety, clear heavy thoughts, and gain clarity. Write freely about whatever is troubling you — we listen with compassion, without judgment, helping you see things from a fresh perspective and rebuild inner strength.',
     'btn_order_digital' => 'Start Subscription',
 
     // ==========================================
-    // 7. Emotions Section (Выбор эмоции)
+    // 7. Emotions Section (Emotion Selection)
     // ==========================================
     'emotions_heading'  => 'How are you feeling right now?',
     'emotion_neutral'   => 'Hard to define',
     'neutral_subject'   => '[Dialogue] Feeling confused inside',
-    'neutral_body'      => "Hello.\nIt's hard for me to understand what I'm feeling right now, but I need to vent...",
+    'neutral_body'      => "Hi.\nIt’s hard to pinpoint exactly what I’m feeling right now, but I just need to share...",
 
     'btn_just_vent'     => 'I just want to vent',
-    'vent_subject'      => '[Vent] I want to share my thoughts',
-    'vent_body'         => "Hello!\nI just need to vent and get my thoughts out...",
+'vent_subject' => '[Draft] My thoughts and emotions',
+'vent_body'    => "Hi!\n\nWrite down everything on your mind. This is your personal space — no need to filter your words, just let it all out.\n\n💡 How it works:\n— This email is not sent anywhere. It stays safely in your 'Drafts'.\n— You can close it at any time (it will auto-save) or return to update it later.",
 
     'emotions_list' => [
         // 5 Positive
-        ['icon' => '✨', 'name' => 'Inspiration', 'type' => 'positive', 'subject' => '[Inspiration] Want to share', 'body' => "Hello!\nI'm feeling an emotional high right now and want to talk about..."],
-        ['icon' => '🙏', 'name' => 'Gratitude', 'type' => 'positive', 'subject' => '[Gratitude] Warm thoughts', 'body' => "Hello!\nI want to share a feeling of gratitude for..."],
-        ['icon' => '🌱', 'name' => 'Hope', 'type' => 'positive', 'subject' => '[Hope] Believing in better days', 'body' => "Hello.\nHope is slowly coming back. I feel that..."],
-        ['icon' => '🕊️', 'name' => 'Peace', 'type' => 'positive', 'subject' => '[Peace] Calm thoughts', 'body' => "Hello.\nIt's quiet inside right now. I want to write down these feelings..."],
-        ['icon' => '😊', 'name' => 'Joy', 'type' => 'positive', 'subject' => '[Joy] Great moment', 'body' => "Hello!\nSomething good happened, and I want to express this joy..."],
+        ['icon' => '✨', 'name' => 'Inspired', 'type' => 'positive', 'subject' => '[Inspiration] Wanting to share', 'body' => "Hi!\nI’m feeling an emotional boost right now and wanted to share..."],
+        ['icon' => '🙏', 'name' => 'Grateful', 'type' => 'positive', 'subject' => '[Gratitude] Gentle thoughts', 'body' => "Hi!\nI’d like to share a sense of gratitude for..."],
+        ['icon' => '🌅', 'name' => 'Hopeful', 'type' => 'positive', 'subject' => '[Hope] Believing in better days', 'body' => "Hi.\nHope is slowly returning. I feel that..."],
+        ['icon' => '🕊️', 'name' => 'Peaceful', 'type' => 'positive', 'subject' => '[Peace] Quiet thoughts', 'body' => "Hi.\nThings feel quiet inside right now. I wanted to capture this feeling..."],
+        ['icon' => '😊', 'name' => 'Joyful', 'type' => 'positive', 'subject' => '[Joy] A bright moment', 'body' => "Hi!\nSomething wonderful happened, and I wanted to express this joy..."],
         
         // 5 Difficult
-        ['icon' => '😰', 'name' => 'Anxiety', 'type' => 'negative', 'subject' => '[Anxiety] I need to calm down', 'body' => "Hello.\nI am feeling very anxious right now. I am worried about..."],
-        ['icon' => '💔', 'name' => 'Sadness', 'type' => 'negative', 'subject' => '[Sadness] Heavy heart', 'body' => "Hello.\nI am feeling sad right now. It feels like..."],
-        ['icon' => '🔥', 'name' => 'Anger', 'type' => 'negative', 'subject' => '[Anger] Venting frustration', 'body' => "Hello.\nI am incredibly angry and irritated by..."],
-        ['icon' => '🌧️', 'name' => 'Loneliness', 'type' => 'negative', 'subject' => '[Loneliness] Need to talk', 'body' => "Hello.\nI have no one to say this to, but I feel..."],
-        ['icon' => '🔋', 'name' => 'Exhaustion', 'type' => 'negative', 'subject' => '[Exhaustion] Out of energy', 'body' => "Hello.\nI am terribly tired of..."],
+        ['icon' => '😰', 'name' => 'Anxious', 'type' => 'negative', 'subject' => '[Anxiety] Need to find calm', 'body' => "Hi.\nI’m feeling very anxious right now. I’m worried about..."],
+        ['icon' => '💔', 'name' => 'Sad', 'type' => 'negative', 'subject' => '[Sadness] Heavy heart', 'body' => "Hi.\nI feel sad today. It seems like..."],
+        ['icon' => '🔥', 'name' => 'Angry', 'type' => 'negative', 'subject' => '[Anger] Venting frustration', 'body' => "Hi.\nI’m feeling incredibly frustrated and upset about..."],
+        ['icon' => '🌧️', 'name' => 'Lonely', 'type' => 'negative', 'subject' => '[Loneliness] Need someone to talk to', 'body' => "Hi.\nI have no one to say this to, but I feel..."],
+        ['icon' => '🔋', 'name' => 'Exhausted', 'type' => 'negative', 'subject' => '[Exhaustion] Out of energy', 'body' => "Hi.\nI’m completely exhausted from..."],
     ],
-    
+
     // ==========================================
-    // 8. Copy Fallback (Копирование email)
+    // 8. Copy Fallback
     // ==========================================
-    'fallback_text'   => 'If the buttons do not open your email client, simply copy the address and paste it into the "To:" field of your email application:',
+    'fallback_text'   => 'If the buttons don’t open your email client automatically, simply copy the address below and paste it into the “To:” field of your email app:',
     'btn_copy_email'  => 'Copy Email Address',
     'toast_copied'    => 'Address copied to clipboard!',
 
     // ==========================================
-    // 9. Digital FAQ (Вопросы по Email-поддержке)
+    // 9. Digital FAQ
     // ==========================================
     'faq_title' => 'Frequently Asked Questions',
+
     'faq_q1' => 'How does choosing an emotion work?',
-    'faq_a1' => 'Clicking on a relevant emotion automatically creates a new draft in your email app with a pre-filled subject line. All you need to do is write your message and press "Send".',
-    'faq_q2' => 'What if the button does not open my email app?',
-    'faq_a2' => 'You can use the "Copy Email Address" button above, open your preferred email service (Gmail, Outlook, etc.), and send a letter manually to digital@emotionsbymail.com.',
-    'faq_q3' => 'How quickly will I get a response?',
-    'faq_a3' => 'We process all emails in order of arrival. Typically, a reply is sent within 24 hours.',
-    'faq_q4' => 'Is this completely confidential?',
-    'faq_a4' => 'Yes, all correspondence is strictly anonymous and secure. We never share your data with third parties or publish your letters.',
-    'faq_q5' => 'Is the service really free?',
-    'faq_a5' => 'Yes, absolutely! You can freely express any emotions by clicking the "I just want to vent" button. By replying to your own emails, you build a continuous thread of thoughts — your personal safe journal that helps you view the situation objectively and figure things out on your own.',
-    'faq_q6' => 'Can I get a response from a real human?',
-    'faq_a6' => 'Yes, we offer a "Support over a cup of coffee" option. It is a gentle dialogue with a specialist who avoids giving strict advice or prescriptions, helping you hear yourself through thoughtful and supportive questions.<br><br>One session includes a series of 5 emails. The cost is symbolic — the price of one cup of coffee (€5).<br><br><a href="https://test.emotionsbymail.com/en/payment" class="bmc-button-wrapper">☕ Buy me a coffee (€5)</a>',
+    'faq_a1' => 'Click on the emotion that matches how you feel right now. A pre-addressed email draft with a subject line will automatically open in your mail app. Simply write your thoughts and hit send.',
+
+    'faq_q2' => 'What if the button doesn’t open my email app?',
+    'faq_a2' => 'Simply click the button above to copy digital@emotionsbymail.com, open your preferred email provider (Gmail, Outlook, Apple Mail), and send a message manually.',
+
+    'faq_q3' => 'What is the difference between the support formats?',
+    'faq_a3' => '<p><b>🌱 Self-Discovery (Free):</b> your private draft for a thoughtful inner dialogue and releasing emotions. The email is not sent anywhere and stays strictly with you.</p><p><b>☕ Live Specialist (€5&nbsp;per&nbsp;session):</b> 5&nbsp;deep letters with a person who will listen attentively, show genuine empathy, and offer non-judgmental support.</p>',
+
+    'faq_q4' => 'How quickly will I receive a response?',
+    'faq_a4' => '<p>The Self-Discovery format requires no waiting time — your letter is created instantly and stays in your private "Drafts".</p><p>In the Live Specialist format, we respond thoughtfully and attentively within 24 hours <b>on business days</b>.</p><p><b>Working hours:</b> Mon–Fri, 9:00 AM – 9:00 PM.</p>',
+
+    'faq_q5' => 'Is this completely confidential?',
+    'faq_a5' => 'Yes, everything is entirely anonymous and private. Your letters are read only by you and your dedicated listener. We honor your trust and never share your stories with anyone.',
+
+    'faq_q6' => 'How do I pay for the “Human Listener” option?',
+    'faq_a6' => '<p>Our service is built on mutual support: we support you, and you support us. The “Human Listener” format offers warm, informal communication akin to catching up with a friend over coffee. That’s why the nominal session fee of €5 is comparable to buying a cup of coffee — a simple token of appreciation for dedicated time and care.</p><p><a href="/en/payment" class="bmc-button-wrapper">☕ Payment Guide & Support (€5)</a></p>',
 
     // ==========================================
-    // 10. Paper FAQ (Paper Letters FAQ)
+    // 9.1 Plans and Formats
+    // ==========================================
+    'formats_title' => 'Choose Your Support Format',
+    'formats_subtitle' => 'Written communication gives you space to reflect on every thought at your own pace',
+
+    // Card Titles
+    'col_free' => '🌱 Self-Reflection',
+    'col_human' => '☕ Human Listener',
+
+    // Feature Labels
+    'lbl_target' => 'Best for',
+    'lbl_process' => 'How it works',
+    'lbl_time' => 'Response time',
+    'lbl_format' => 'Format',
+
+    // Description: Free
+    'row_target_free'  => 'For those who want to vent, release emotional weight, and structure their thoughts.',
+    'row_process_free' => 'The button opens your email app — you write your thoughts, and they stay safely in your private "Drafts".',
+    'row_time_free'    => 'Full anonymity (not sent anywhere)',
+    'row_format_free'  => 'Private draft in your email',
+    'row_price_free'   => 'Free',
+    'btn_start_free' => '🌱 I just want to vent',
+
+    // Description: Human Listener
+    'row_target_human' => 'Anyone seeking genuine human warmth, empathy, and attentive listening',
+    'row_process_human' => 'A real person carefully reads your story and offers empathetic, thoughtful guidance',
+    'row_time_human' => 'Thoughtful reply within 24 hours',
+    'row_format_human' => 'A session of 5 deep email exchanges',
+    'row_price_human' => '€5 / session',
+    'btn_buy_human' => '☕ Payment Guide & Support (€5)',
+
+    // ==========================================
+    // 10. Paper FAQ
     // ==========================================
     'paper_faq_title' => 'Frequently Asked Questions',
     'paper_faq' => [
-        // 1. Product Understanding
+        // 1. Product understanding
         [
-            'q' => 'What do the letters look like, and what is included?',
-            'a' => '<p>Each letter is an aesthetic postcard made of thick designer paper with custom artwork and a pre-written heartfelt message. It comes packaged in a beautiful envelope and hand-sealed with genuine sealing wax.</p>' .
-        '<p><a href="https://test.emotionsbymail.com/en/postcards" class="bmc-button-wrapper">Ready-made paper postcards</a></p>'
+            'q' => 'What do physical letters look like, and what is included?',
+            'a' => '<p>Each item is an aesthetic postcard crafted from heavy designer cardstock, featuring custom artwork and a pre-written uplifting text. It is packaged in a elegant envelope and finished with a handmade real wax seal.</p>'
         ],
         // 2. Range & Occasions
         [
-            'q' => 'Who can I order a postcard for, and for what occasions?',
-            'a' => '<p>We have created a line of ready-made postcards for life\'s most meaningful moments and states of mind:</p>' .
+            'q' => 'Who can I send a postcard to, and for what occasions?',
+            'a' => '<p>We have curated a collection of pre-designed postcards for key life moments:</p>' .
                    '<ul>' .
-                   '<li><b>For students & studies:</b> support before exams, finals, or starting university.</li>' .
-                   '<li><b>During illness & recovery:</b> warm words of care with get-well-soon wishes.</li>' .
-                   '<li><b>For difficult losses:</b> sincere condolences and gentle comfort during times of grief.</li>' .
-                   '<li><b>Everyday motivation:</b> support for burnout, finding inspiration, or simply an emotional boost without a specific reason.</li>' .
+                   '<li><b>For Students & Academics:</b> Encouragement before exams, midterms, or university entry.</li>' .
+                   '<li><b>Get Well Soon & Recovery:</b> Warm words of comfort wishing a smooth recovery.</li>' .
+                   '<li><b>During Times of Loss:</b> Sincere condolences and gentle solace in difficult moments.</li>' .
+                   '<li><b>Daily Motivation:</b> Support for burnout, finding inspiration, or a simple emotional boost.</li>' .
                    '</ul>' .
-                   '<p>You can send a postcard to a friend, a loved one, or even to yourself as a personal act of self-care.</p>'
+                   '<p>You can send a postcard to a friend, a loved one, or to yourself as a personal act of self-care.</p><p><a href="/en/postcards" class="bmc-button-wrapper">Browse Postcard Collection</a></p>'
         ],
         // 3. Ordering Process
         [
             'q' => 'How do I order a physical postcard?',
-            'a' => '<p>To place an order for yourself or a loved one, simply send an email request:</p>' .
+            'a' => '<p>To place an order for yourself or a loved one, simply email us your request:</p>' .
                    '<ol>' .
                    '<li>Send an email to: <b>paper@emotionsbymail.com</b></li>' .
-                   '<li>Specify your chosen postcard option (occasion or theme).</li>' .
-                   '<li>Provide the recipient\'s name and preferred delivery method:' .
+                   '<li>Specify your chosen postcard design (occasion or theme).</li>' .
+                   '<li>Provide the recipient’s name and preferred delivery method:' .
                    '<ul>' .
-                   '<li>Exact home address (postal code, city, street, house, apartment) — for direct mailbox delivery.</li>' .
-                   '<li>Or post office details if you prefer to pick up the letter in person.</li>' .
+                   '<li>Full postal address (zip code, city, street, house, apartment) for direct mailbox delivery.</li>' .
+                   '<li>Or local post office details if you prefer self-pickup.</li>' .
                    '</ul></li>' .
                    '</ol>' .
-                   '<p><b>Important:</b> Please place your order <b>at least 1 month before your desired delivery date</b>. This time is needed for careful assembly, wax sealing, and reliable physical postal delivery.</p>'
+                   '<p><b>Note:</b> Please place your order <b>at least 1 month in advance</b> of your target date. This allows adequate time for crafting, wax sealing, and reliable postal dispatch.</p>'
         ],
         // 4. Pricing & Payment
         [
-            'q' => 'How much does it cost, and how can I pay for the letter?',
-            'a' => '<p>The fixed price for one postcard, including shipping, is €5. Detailed payment instructions and available transfer methods can be found on our dedicated page:</p>' .
-                   '<p><a href="https://test.emotionsbymail.com/en/payment" class="bmc-button-wrapper">Go to payment instructions (€5)</a></p>' .
-                   '<p>After completing your payment, please email your order details and proof of payment to: <b>paper@emotionsbymail.com</b>.</p>'
+            'q' => 'How much does it cost, and how can I pay?',
+            'a' => '<p>The fixed price for a postcard, including worldwide delivery, is €5. Detailed payment instructions and accepted payment methods can be found on our dedicated page:</p>' .
+                   '<p><a href="/en/payment" class="bmc-button-wrapper">Go to Payment Guide (€5)</a></p>' .
+                   '<p>After completing payment, please email your order details and confirmation to: <b>paper@emotionsbymail.com</b>.</p>'
         ],
     ],
 
     // ==========================================
-    // 11. Footer (Подвал сайта)
+    // 11. Footer
     // ==========================================
-    'footer_about'      => 'Truly warm and gentle emotional support delivered via physical and digital letters.',
+    'footer_about'      => 'A gentle emotional support service offering online comfort through email correspondence and physical wax-sealed letters.',
     'footer_sections'   => 'Sections:',
-    'footer_paper'       => 'Physical Mail Service',
-    'footer_digital'     => 'Anonymous Email Support',
+    'footer_paper'      => 'Paper Letter Service',
+    'footer_digital'    => 'Anonymous Email Support',
     'footer_contact'    => 'Contact Us:',
-    'footer_disclaimer' => 'Important: The service provides emotional support but does not replace professional psychotherapy or emergency medical assistance. If you are experiencing a severe crisis, please contact the Lifeline Ukraine support hotline at 7333.',
+    'footer_disclaimer' => 'Important: This service provides emotional support but does not replace professional psychotherapy or emergency medical care. If you are experiencing a severe crisis, please contact your local emergency services or find a helpline in your country at <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer">findahelpline.com</a>.',
 
     // ==========================================
-    // 12. Payment Page (Страница оплаты)
+    // 12. Payment Page
     // ==========================================
-    'payment_title' => 'Payment Instructions for Emotions by Mail Services',
-    'payment_intro' => 'A simple and secure checkout process via the Buy&nbsp;Me&nbsp;a&nbsp;Coffee platform.',
+    'payment_title' => 'Payment Guide | Emotions by Mail',
+    'payment_intro' => 'A simple and secure checkout process via&nbsp;Buy&nbsp;Me&nbsp;a&nbsp;Coffee',
 
-    'payment_step_1_title' => 'Select Service Format',
-    'payment_step_1_desc'  => 'Go to the payment platform and choose your preferred support option.',
+    'payment_step_1_title' => 'Select Service Option',
+    'payment_step_1_desc'  => 'Head to the payment platform and choose your preferred support option.',
 
     'payment_step_2_title' => 'Name & Message',
-    'payment_step_2_desc'  => 'These fields are optional — fill them out if you would like to leave a note or comment.',
+    'payment_step_2_desc'  => 'These fields are optional — fill them out if you’d like to leave a note or signature.',
 
     'payment_step_3_title' => 'Provide Contact Info',
-    'payment_step_3_desc'  => 'Be sure to enter your Email so we know where to send our response or confirm delivery details.',
+    'payment_step_3_desc'  => 'Be sure to enter your valid email address so we can reply or confirm delivery details.',
 
-    'payment_step_4_title' => 'Complete Payment',
-    'payment_step_4_desc'  => 'Pay conveniently using Card, Apple Pay, or Google Pay. Fully protected and secure.',
+    'payment_step_4_title' => 'Complete Checkout',
+    'payment_step_4_desc'  => 'Pay securely using your preferred method (Card, Apple Pay, Google Pay).',
 
-    'payment_cta_title'    => 'Ready to Place Your Order?',
-    'payment_cta_desc'     => 'Click the button below to proceed to the secure payment form.',
+    'payment_cta_title'    => 'Ready to order?',
+    'payment_cta_desc'     => 'Click below to proceed to the secure checkout page.',
     'payment_cta_btn'      => 'Proceed to Payment',
 
     'payment_faq_title'    => 'Frequently Asked Questions',
     'payment_faq'          => [
         [
             'q' => 'Is paying through Buy Me a Coffee safe?',
-            'a' => 'Yes, the platform utilizes secure Stripe payment gateways, ensuring maximum transaction security.'
+            'a' => 'Yes, the platform processes payments via Stripe, ensuring bank-grade security and encryption.'
         ]
     ],
     // ==========================================
     // 13. Postcards Page
     // ==========================================
-    'postcards_title'        => 'Postcards Catalog — Emotions by Mail',
-    'postcards_h1'           => 'Printed Postcards Collection',
-    'postcards_subtitle'     => 'Choose an aesthetic card with a heartwarming text for yourself or a loved one.',
-    'postcards_badge'        => 'Fixed price: 5 € (shipping included)',
-    'postcards_btn_order'    => 'Order this postcard',
-    'postcards_btn_pay'      => 'Proceed to payment (5 €)',
-    'img_placeholder' => 'IMAGE COMING SOON',
+    'postcards_title'        => 'Postcard Collection — Emotions by Mail',
+    'postcards_h1'           => 'Curated Physical Postcards',
+    'postcards_subtitle'     => 'Choose an aesthetic card with heartwarming words for yourself or someone special.',
+    'postcards_badge'        => 'Fixed Price: €5 (Includes Shipping)',
+    'postcards_btn_order'    => 'Order This Postcard',
+    'postcards_btn_pay'      => 'Proceed to Payment (€5)',
+    'img_placeholder' => 'IMAGE PREPARATION IN PROGRESS',
     
-    // Filter Categories
-    'cat_all'          => 'All categories',
-    'cat_study'        => 'Students & Education',
-    'cat_get_well'     => 'Get Well & Recovery',
-    'cat_support'      => 'Comfort in Grief',
+    // Filter categories
+    'cat_all'          => 'All Categories',
+    'cat_study'        => 'Students & Academics',
+    'cat_get_well'     => 'Recovery & Wellness',
+    'cat_support'      => 'Sympathy & Loss',
     'cat_daily_boost'  => 'Daily Motivation',
     
-    // Postcards List
+    // Postcard list
     'postcards_items' => [
         'study' => [
             'id'          => 'study',
             'category'    => 'study',
-            'title'       => 'Students & Education',
-            'subtitle'    => 'Encouragement before exams, finals, or starting a new journey',
+            'title'       => 'For Students & Academics',
+            'subtitle'    => 'Encouragement before exams, midterms, or major transitions',
             'image'       => '/assets/images/paper_cards/study.jpg',
             'badge'       => 'Studies & Growth',
-            'text'        => 'Studying and major life transitions are always a true test of endurance. Remember that your worth is never measured by grades or exam scores. You have already come so far, and inside you lies enough knowledge, strength, and resilience to overcome this chapter. Take a deep breath, trust yourself, and take the step forward. You’ve got this!'
+            'text'        => 'Academic journeys and big life changes are true tests of resilience. Remember that your worth is never defined by grades or test scores. You have already come so far, and you carry enough knowledge, strength, and persistence to navigate this milestone. Take a deep breath, trust yourself, and step forward. You’ve got this!'
         ],
         'get_well' => [
             'id'          => 'get_well',
             'category'    => 'get_well',
-            'title'       => 'Get Well & Recovery',
+            'title'       => 'Recovery & Wellness',
             'subtitle'    => 'Warmth, care, and heartfelt wishes for a smooth recovery',
             'image'       => '/assets/images/paper_cards/get_well.jpg',
-            'badge'       => 'Care & Health',
-            'text'        => 'Consider this little card a warm and comforting embrace. When your body asks for rest, the most important thing is to give yourself permission to slow down, recharge, and take all the time you need. May each day bring a bit more comfort and strength. Take good care of yourself. Keeping you in my thoughts!'
+            'badge'       => 'Care & Well-being',
+            'text'        => 'May this little letter be a warm, comforting ray of light. When your body calls for rest, the most important thing is giving yourself permission to slow down, restore your energy, and take things step by step. May each day bring a little more strength and comfort. Take good care of yourself — keeping you in warm thoughts!'
         ],
         'support' => [
             'id'          => 'support',
             'category'    => 'support',
-            'title'       => 'Comfort in Grief',
-            'subtitle'    => 'Heartfelt condolences and gentle support in quiet moments',
+            'title'       => 'Sympathy & Solace',
+            'subtitle'    => 'Sincere condolences and gentle support during times of loss',
             'image'       => '/assets/images/paper_cards/support.jpg',
-            'badge'       => 'Gentle Support',
-            'text'        => 'In times of deep sorrow, words can rarely ease the pain. Yet I hope that amid the silence, you feel the gentle warmth of care surrounding you. Love, light, and cherished memories stay with us forever — nothing can ever take them away. Give yourself time and space to heal at your own pace. Sending you warm hugs.'
+            'badge'       => 'Gentle Comfort',
+            'text'        => 'In times of deep sorrow, finding words that ease the pain can feel impossible. Yet I hope that within this quietness, you feel the warmth of true support. Love, light, and cherished memories stay with us always — untouched by time. Allow yourself the grace to process these feelings at your own pace. Sending you strength and comfort.'
         ],
         'daily_boost' => [
             'id'          => 'daily_boost',
             'category'    => 'daily_boost',
             'title'       => 'Daily Motivation',
-            'subtitle'    => 'A gentle boost for burnout, inspiration, or a moment of reflection',
+            'subtitle'    => 'Comfort during burnout, inspiration, or a gentle boost',
             'image'       => '/assets/images/paper_cards/daily_boost.jpg',
             'badge'       => 'Inspiration',
-            'text'        => 'Sometimes all you need is a quick pause and a gentle reminder: life is turning out better than it feels when you are exhausted. In the chase for achievements, it’s easy to forget your own well-being. Stop for a moment, enjoy a warm cup of tea, and acknowledge how far you’ve come. Wonderful things lie ahead, and everything is unfolding just as it should.'
+            'text'        => 'Sometimes all we need is a brief pause and a reminder: life is unfolding better than it feels in moments of fatigue. In the rush to accomplish things, it’s easy to forget to recharge. Pause, sip some warm tea, and acknowledge every small step you’ve taken. Brighter moments are ahead, and you are doing just fine.'
         ],
     ],
     // ==========================================
     // CTA & Misc
     // ==========================================
     'badge_coming_soon'          => 'Coming Soon',
-    'postcards_cta_title'        => 'Want to create your own postcard?',
+    'postcards_cta_title'        => 'Want to create a custom postcard?',
     'postcards_cta_desc'         => 'Upload your own image and add a personalized message.',
-    'feature_in_development'     => 'Feature in development',
+    'feature_in_development'     => 'Feature in Development',
     'create_own_btn_disabled'    => 'In Development',
 ];
