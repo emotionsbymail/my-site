@@ -29,7 +29,7 @@ function getClientIP() {
     return $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
 }
 
-// 1. Получаем текущий маршрут из адресной строки и очищаем крайностей слэши
+// 1. Получаем текущий маршрут из адресной строки и очищаем крайние слэши
 $route = isset($_GET['route']) ? trim($_GET['route'], '/') : '';
 
 // 2. Определяем язык строго по URL (/en/postcards или /ru/postcards)
@@ -97,7 +97,7 @@ if (file_exists($lang_file)) {
     error_log("Warning: Language file not found: {$lang_file} | IP -> {$user_ip}");
 }
 
-// 5. Обновленный роутер с поддержкой postcards
+// 5. Обновленный роутер с юридическими страницами и postcards
 switch ($clean_route) {
     case '':
         $page_title = $texts['title_home'] ?? 'Emotions by Mail';
@@ -105,23 +105,55 @@ switch ($clean_route) {
         break;
         
     case 'paper':
+    case 'paper.php':
         $page_title = $texts['title_paper'] ?? 'Paper Letters';
         $template = 'paper.php';
         break;
         
     case 'digital':
+    case 'digital.php':
         $page_title = $texts['title_digital'] ?? 'Digital Support';
         $template = 'digital.php';
         break;
 
     case 'payment':
+    case 'payment.php':
         $page_title = $texts['title_payment'] ?? 'Payment Guide';
         $template = 'payment.php';
         break;
 
     case 'postcards':
+    case 'postcards.php':
         $page_title = $texts['title_postcards'] ?? 'Postcards';
         $template = 'postcards.php';
+        break;
+
+    case 'privacy':
+    case 'privacy.php':
+    case 'privacy-policy':
+    case 'privacy-policy.php':
+        $page_title = $texts['title_privacy'] ?? 'Privacy Policy';
+        $template = 'legal/privacy.php';
+        break;
+
+    case 'terms':
+    case 'terms.php':
+    case 'terms-of-service':
+    case 'terms-of-service.php':
+        $page_title = $texts['title_terms'] ?? 'Terms & Conditions';
+        $template = 'legal/terms.php';
+        break;
+
+    case 'refund-policy':
+    case 'refund-policy.php':
+        $page_title = $texts['title_refund'] ?? 'Refund Policy';
+        $template = 'legal/refund-policy.php';
+        break;
+
+    case 'shipping-policy':
+    case 'shipping-policy.php':
+        $page_title = $texts['title_shipping'] ?? 'Shipping Policy';
+        $template = 'legal/shipping-policy.php';
         break;
         
     default:
@@ -151,5 +183,7 @@ if (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'test.emotionsbyma
     echo '<div style="position:fixed;top:10px;right:10px;background:#ff3b30;color:#ffffff;padding:6px 14px;font-size:12px;font-weight:bold;font-family:sans-serif;border-radius:20px;box-shadow:0 4px 12px rgba(255,59,48,0.4);z-index:99999;pointer-events:none;letter-spacing:0.5px;text-transform:uppercase;">🧪 TEST STAGING</div>';
 }
 
-include __DIR__ . '/templates/' . basename($template);
+// Подключаем относительный путь шаблона
+include __DIR__ . '/templates/' . $template;
+
 include __DIR__ . '/templates/footer.php';

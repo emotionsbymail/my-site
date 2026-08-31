@@ -45,13 +45,13 @@ if ($lang === 'ru') {
         <!-- Оформленный список проектов -->
         <ul class="promo-services-links">
             <li>
-                <a href="<?= $url_prefix ?>digital"><?= htmlspecialchars($texts['nav_digital'] ?? '') ?></a> 
-                <span style="white-space: nowrap;">• <?= htmlspecialchars($texts['promo_feat_1_tag'] ?? '') ?></span>
-            </li>
-            <li>
-                <a href="<?= $url_prefix ?>paper"><?= htmlspecialchars($texts['nav_paper'] ?? '') ?></a> 
-                <span style="white-space: nowrap;">• <?= htmlspecialchars($texts['promo_feat_2_tag'] ?? '') ?></span>
-            </li>
+    <a href="<?= $url_prefix ?>digital"><?= htmlspecialchars($texts['nav_digital'] ?? '') ?></a> 
+    <span style="white-space: nowrap;">• <?= htmlspecialchars($texts['promo_feat_1_tag'] ?? '') ?></span>
+</li>
+<li>
+    <a href="<?= $url_prefix ?>paper"><?= htmlspecialchars($texts['nav_paper'] ?? '') ?></a> 
+    <span style="white-space: nowrap;">• <?= htmlspecialchars($texts['promo_feat_2_tag'] ?? '') ?></span>
+</li>
         </ul>
         
         <p class="promo-success-badge"><strong><?= $texts['promo_success'] ?? '' ?></strong></p>

@@ -2467,3 +2467,139 @@ p a:focus-visible,
     will-change: transform, opacity; /* Аппаратное ускорение на телефонах */
     transition: transform 4s ease-in-out, opacity 4s ease-in-out;
 }
+    /* ==========================================
+     14. privacy (Политика конфиденциальности)
+     ==========================================*/
+/* Контейнер для документов */
+.legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 48px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    text-align: left;
+}
+
+/* Оформление типографики внутри документа */
+.legal-container h1 {
+    font-size: 32px;
+    color: var(--dark);
+    margin-bottom: 8px;
+    font-weight: 800;
+}
+
+.legal-container .last-updated {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 32px;
+}
+
+.legal-container h2, 
+.legal-container h3 {
+    color: var(--dark);
+    margin-top: 28px;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.legal-container p {
+    margin-bottom: 16px;
+    font-size: 15px;
+}
+
+.legal-container ul, 
+.legal-container ol {
+    margin-bottom: 16px;
+    padding-left: 24px;
+}
+
+.legal-container li {
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.legal-container a {
+    color: var(--link-color);
+    text-decoration: underline;
+}
+
+.legal-container hr {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 32px 0;
+}
+
+/* Кнопка возврата внизу страницы */
+.back-nav {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.legal-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--dark);
+    color: var(--btn-text);
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.legal-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .legal-container {
+        padding: 24px 20px;
+    }
+    .legal-container h1 {
+        font-size: 24px;
+    }
+}
+/* Дисклеймер */
+.footer-disclaimer {
+    margin-top: 20px;
+    margin-bottom: 12px;
+    padding-top: 16px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.12);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #666666;
+}
+
+/* Юридическая строка над копирайтом */
+.footer-legal-bar {
+    text-align: center;
+    padding: 8px 0 16px 0;
+    font-size: 0.82rem;
+}
+
+.footer-legal-bar a {
+    color: #666666;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-legal-bar a:hover {
+    color: #111111;
+    text-decoration: underline;
+}
+
+.legal-dot {
+    margin: 0 8px;
+    color: #cccccc;
+}
+
+/* Сброс отступа для полосы копирайта */
+.footer-bottom {
+    margin-top: 0;
+}

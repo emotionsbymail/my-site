@@ -84,7 +84,7 @@ if ($lang === 'ru') {
                 <img src="/assets/images/logo-bimi.svg" alt="Emotions by Mail Stamp" class="footer-stamp-img">
             </div>
         </div>
-    </div> <!-- / .footer-content правильное закрытие колонок -->
+    </div> <!-- / .footer-content -->
 
     <!-- Дисклеймер безопасности -->
     <div class="container">
@@ -93,7 +93,20 @@ if ($lang === 'ru') {
                 ? 'Важно: Сервис предоставляет эмоциональную поддержку, но не заменяет профессиональную психотерапию или экстренную медицинскую помощь. Если вы находитесь в тяжелом кризисном состоянии, обратитесь на линию поддержки Lifeline Ukraine по номеру 7333.' 
                 : ($lang === 'en' 
                     ? 'Important: This service provides emotional support but does not replace professional psychotherapy or emergency medical care. If you are in a severe crisis, please reach out to local mental health support or Lifeline Ukraine at 7333.' 
-                    : 'Важливо: Сервіс надає емоційну підтримку, але не замінює професійну психотерапію або екстрену медичну службу. Якщо ви перебуваєте у важкому кризовому стані, зверніться на лінію підтримки Lifeline Ukraine за номером 7333.')) ?>
+                    : 'Важливо: Сервіс надає емоційну підтримку, але не замінює професійну психотерапію або екстрену медичну службу. Якщо ви перебуваете у важкому кризовому стані, зверніться на лінію підтримки Lifeline Ukraine за номером 7333.')) ?>
+        </div>
+    </div>
+
+    <!-- Юридические документы (Аккуратная нижняя строка) -->
+    <div class="footer-legal-bar">
+        <div class="container">
+            <a href="<?= $prefix ?>privacy-policy"><?= $texts['footer_privacy_policy'] ?? ($lang === 'ru' ? 'Политика конфиденциальности' : ($lang === 'en' ? 'Privacy Policy' : 'Політика конфіденційності')) ?></a>
+            <span class="legal-dot">•</span>
+            <a href="<?= $prefix ?>terms-of-service"><?= $texts['footer_terms_of_service'] ?? ($lang === 'ru' ? 'Условия использования' : ($lang === 'en' ? 'Terms of Service' : 'Умови використання')) ?></a>
+            <span class="legal-dot">•</span>
+            <a href="<?= $prefix ?>refund-policy"><?= $texts['footer_refund_policy'] ?? ($lang === 'ru' ? 'Политика возврата средств' : ($lang === 'en' ? 'Refund Policy' : 'Політика повернення коштів')) ?></a>
+            <span class="legal-dot">•</span>
+            <a href="<?= $prefix ?>shipping-policy"><?= $texts['footer_shipping_policy'] ?? ($lang === 'ru' ? 'Политика доставки' : ($lang === 'en' ? 'Shipping Policy' : 'Політика доставки')) ?></a>
         </div>
     </div>
 
@@ -101,10 +114,22 @@ if ($lang === 'ru') {
     <div class="footer-bottom">
         <div class="container footer-bottom-content">
             <span>&copy; <?= date('Y') ?> Emotions by Mail</span>
+            
             <span class="copyright-divider">│</span>
+            
             <span><?= 
-                $lang === 'ru' ? 'Все права защищены.' : 
-                ($lang === 'en' ? 'All rights reserved.' : 'Усі права захищені.') 
+                $lang === 'ru' ? 'Автор и основатель сервиса — ' : 
+                ($lang === 'en' ? 'Author & Founder of the service — ' : 'Автор та засновник сервісу — ') 
+            ?><a href="mailto:author@emotionsbymail.com" class="author-link"><?= 
+                $lang === 'ru' ? 'Андрей Благой' : 
+                ($lang === 'en' ? 'Andrii Blahyi' : 'Андрій Благий') 
+            ?></a></span>
+            
+            <span class="copyright-divider">│</span>
+            
+            <span><?= 
+                $lang === 'ru' ? 'Все права защищены' : 
+                ($lang === 'en' ? 'All rights reserved' : 'Усі права захищені') 
             ?></span>
         </div>
     </div>
