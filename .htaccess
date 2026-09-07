@@ -56,6 +56,11 @@ RewriteBase /
     RewriteCond %{HTTP:X-Forwarded-Proto} !https
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+    # --- РЕДИРЕКТ ДЛЯ QR-КОДОВ И СТАТИСТИКИ ---
+    RewriteRule ^12345\.php$ https://emotionsbymail.com/digital [R=302,L]
+RewriteRule ^kyiv\.php$ https://emotionsbymail.com/digital?utm_campaign=kyiv [R=302,L]
+RewriteRule ^poster1$ https://emotionsbymail.com/digital?utm_campaign=poster1 [R=302,L]
+
     # Исключаем реальные файлы, папки и папку /api/ из роутинга index.php
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d [OR]

@@ -1,13 +1,20 @@
 <?php
 // 0. Настройка папки logs и логирования ошибок PHP
 $logDir = __DIR__ . '/logs';
+$logFile = $logDir . '/php_errors.log';
 
 if (!file_exists($logDir)) {
     @mkdir($logDir, 0755, true);
 }
 
+// === АВТООЧИСТКА ЛОГА ПРИ ПРЕВЫШЕНИИ 5 МБ ===
+if (file_exists($logFile) && filesize($logFile) > 5 * 1024 * 1024) {
+    file_put_contents($logFile, ''); 
+}
+// ============================================
+
 ini_set('log_errors', '1');
-ini_set('error_log', $logDir . '/php_errors.log');
+ini_set('error_log', $logFile);
 ini_set('display_errors', '0');
 ini_set('display_startup_errors', '0');
 error_reporting(E_ALL);
@@ -29,29 +36,6 @@ function getClientIP() {
     return $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
 }
 
-// 1. Получаем текущий маршрут из адресной строки и очищаем крайние слэши
-$route = isset($_GET['route']) ? trim($_GET['route'], '/') : '';
-
-// 2. Определяем язык строго по URL (/en/postcards или /ru/postcards)
-$lang = 'uk';
-$clean_route = $route;
-
-if (preg_match('#^ru(/|$)#i', $route)) {
-    $lang = 'ru';
-    $clean_route = trim(preg_replace('#^ru(/|$)#i', '', $route), '/');
-} elseif (preg_match('#^en(/|$)#i', $route)) {
-    $lang = 'en';
-    $clean_route = trim(preg_replace('#^en(/|$)#i', '', $route), '/');
-} elseif (preg_match('#^(ua|uk)(/|$)#i', $route)) {
-    $clean_route = trim(preg_replace('#^(ua|uk)(/|$)#i', '', $route), '/');
-    $redirect_url = '/' . $clean_route;
-    header("Location: " . $redirect_url, true, 301);
-    exit;
-} elseif (isset($_GET['lang']) && in_array($_GET['lang'], ['en', 'ru', 'uk', 'ua'])) {
-    $req_lang = $_GET['lang'] === 'ua' ? 'uk' : $_GET['lang'];
-    $lang = $req_lang;
-}
-
 function setLanguageCookie($language) {
     $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || ($_SERVER['SERVER_PORT'] ?? 80) == 443;
     setcookie('user_lang', $language, [
@@ -63,27 +47,91 @@ function setLanguageCookie($language) {
     ]);
 }
 
-// 3. АВТООПРЕДЕЛЕНИЕ: срабатывает при первом заходе на главный корень '/'
-if ($route === '' && !isset($_GET['lang']) && !isset($_COOKIE['user_lang'])) {
-    $browser_lang = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? '';
-    $primary_lang = strtolower(substr($browser_lang, 0, 2));
+// 1. Получаем текущий маршрут из адресной строки
+$rawRoute = isset($_GET['route']) ? trim($_GET['route'], '/') : '';
 
-    if ($primary_lang === 'ru') {
-        setLanguageCookie('ru');
-        header("Location: /ru", true, 302);
-        exit;
-    } elseif ($primary_lang === 'en') {
-        setLanguageCookie('en');
-        header("Location: /en", true, 302);
-        exit;
-    } else {
-        setLanguageCookie('uk');
-    }
-} else {
-    setLanguageCookie($lang);
+// === 1.1. ОПРЕДЕЛЕНИЕ ЯЗЫКА ИЗ URL ИЛИ GET ===
+$lang = null;
+$clean_route = $rawRoute;
+
+if (preg_match('#^ru(/|$)#i', $rawRoute)) {
+    $lang = 'ru';
+    $clean_route = trim(preg_replace('#^ru(/|$)#i', '', $rawRoute), '/');
+} elseif (preg_match('#^en(/|$)#i', $rawRoute)) {
+    $lang = 'en';
+    $clean_route = trim(preg_replace('#^en(/|$)#i', '', $rawRoute), '/');
+} elseif (preg_match('#^(ua|uk)(/|$)#i', $rawRoute)) {
+    // Если явно переходят на /ua или /uk, редиректим на дефолтный URL без префикса
+    $clean_route = trim(preg_replace('#^(ua|uk)(/|$)#i', '', $rawRoute), '/');
+    setLanguageCookie('uk');
+    header("Location: /" . $clean_route, true, 301);
+    exit;
+} elseif (isset($_GET['lang']) && in_array($_GET['lang'], ['en', 'ru', 'uk', 'ua'])) {
+    $lang = $_GET['lang'] === 'ua' ? 'uk' : $_GET['lang'];
 }
 
-// 4. Подключаем массив с переводами интерфейса
+// === 1.2. ЕСЛИ ЯЗЫК НЕ УКАЗАН В URL: ПРОВЕРЯЕМ БРАУЗЕР ИЛИ КУКИ ===
+if ($lang === null) {
+    if (isset($_COOKIE['user_lang'])) {
+        // Пользователь уже посещал сайт и перешёл на URL без префикса (например, /postcards) — 
+        // устанавливаем украинский язык (дефолтный)
+        $lang = 'uk';
+    } else {
+        // ПЕРВЫЙ ВХОД: определяем язык по браузеру
+        $browserLang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? '', 0, 2));
+
+        if ($browserLang === 'ru') {
+            $lang = 'ru';
+        } elseif ($browserLang === 'en') {
+            $lang = 'en';
+        } else {
+            $lang = 'uk';
+        }
+
+        // Авто-редирект при самом первом заходе на корень сайта (/)
+        if ($rawRoute === '' && !isset($_GET['lang'])) {
+            setLanguageCookie($lang);
+
+            if ($lang === 'ru') {
+                header("Location: /ru", true, 302);
+                exit;
+            } elseif ($lang === 'en') {
+                header("Location: /en", true, 302);
+                exit;
+            }
+        }
+    }
+}
+
+// Сохраняем итоговый язык в куки
+setLanguageCookie($lang);
+
+
+// === 1.3. УНИВЕРСАЛЬНЫЙ ПЕРЕХВАТ ДЛЯ QR-КОДОВ И СТАТИСТИКИ (MATOMO) ===
+$cleanRawRoute = strtolower(preg_replace('#\.php$#i', '', $rawRoute));
+
+$qrRedirects = [
+    '12345' => 'https://emotionsbymail.com/digital?utm_source=qr_code&utm_medium=offline&utm_campaign=campaign_12345',
+    'kyiv'  => 'https://emotionsbymail.com/digital?utm_source=qr_code&utm_medium=print&utm_campaign=kyiv_poster',
+    'promo' => 'https://emotionsbymail.com/digital?utm_source=flyer&utm_medium=offline&utm_campaign=autumn_promo',
+];
+
+if (isset($qrRedirects[$cleanRawRoute])) {
+    $targetUrl = $qrRedirects[$cleanRawRoute];
+
+    if ($lang === 'en' && strpos($targetUrl, '/en/') === false) {
+        $targetUrl = str_replace('emotionsbymail.com/', 'emotionsbymail.com/en/', $targetUrl);
+    } elseif ($lang === 'ru' && strpos($targetUrl, '/ru/') === false) {
+        $targetUrl = str_replace('emotionsbymail.com/', 'emotionsbymail.com/ru/', $targetUrl);
+    }
+
+    header("Location: " . $targetUrl, true, 302);
+    exit;
+}
+// =====================================================================
+
+
+// 2. Подключаем массив с переводами интерфейса
 $lang_file = __DIR__ . "/lang/{$lang}.php";
 if (!file_exists($lang_file) && $lang === 'uk') {
     $lang_file = __DIR__ . "/lang/ua.php";
@@ -97,7 +145,7 @@ if (file_exists($lang_file)) {
     error_log("Warning: Language file not found: {$lang_file} | IP -> {$user_ip}");
 }
 
-// 5. Обновленный роутер с юридическими страницами и postcards
+// 3. Роутер страниц
 switch ($clean_route) {
     case '':
         $page_title = $texts['title_home'] ?? 'Emotions by Mail';
@@ -176,14 +224,12 @@ switch ($clean_route) {
         exit;
 }
 
-// 6. Собираем стандартную страницу
+// 4. Собираем страницу
 include __DIR__ . '/templates/header.php';
 
 if (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'test.emotionsbymail.com') {
     echo '<div style="position:fixed;top:10px;right:10px;background:#ff3b30;color:#ffffff;padding:6px 14px;font-size:12px;font-weight:bold;font-family:sans-serif;border-radius:20px;box-shadow:0 4px 12px rgba(255,59,48,0.4);z-index:99999;pointer-events:none;letter-spacing:0.5px;text-transform:uppercase;">🧪 TEST STAGING</div>';
 }
 
-// Подключаем относительный путь шаблона
 include __DIR__ . '/templates/' . $template;
-
 include __DIR__ . '/templates/footer.php';

@@ -11,10 +11,10 @@ if ($lang === 'ru') {
 <section class="welcome-section" data-lang="<?= htmlspecialchars($lang) ?>">
     <!-- SEO Заголовок -->
     <h1 class="seo-title">
-        <?= $texts['seo_title'] ?? $texts['seo_h1'] ?? '' ?>
+        <?= $texts['seo_title'] ?? 'Emotions by Mail' ?>
     </h1>
 
-    <!-- Динамическое приветствие (заполняется через JS) -->
+    <!-- Динамическое приветствие -->
     <p id="greetingTitle" class="greeting-text">
         <?= $texts['hero_greeting'] ?? '' ?>
     </p>
@@ -22,108 +22,121 @@ if ($lang === 'ru') {
     <!-- Подзаголовок -->
     <p class="welcome-subtitle"><?= htmlspecialchars($texts['choose_format'] ?? $texts['hero_subtitle'] ?? '') ?></p>
     
-    <!-- Кнопки выбора формата -->
+    <!-- Первичные кнопки вызова к действию -->
     <div class="buttons-container">
         <a href="<?= $url_prefix ?>paper" class="btn btn-outline btn-full"><?= htmlspecialchars($texts['btn_paper'] ?? '') ?></a>
         <a href="<?= $url_prefix ?>digital" class="btn btn-primary btn-full"><?= htmlspecialchars($texts['btn_digital'] ?? '') ?></a>
     </div>
 
-    <!-- Вложенный текстовый материал о сервисе -->
-    <article class="about-service-section">
-        <h2><?= htmlspecialchars($texts['promo_tagline'] ?? '') ?></h2>
-        
-        <p class="promo-intro-head"><strong><?= htmlspecialchars($texts['promo_intro_title'] ?? '') ?></strong></p>
-        <p><?= htmlspecialchars($texts['promo_intro_text1'] ?? '') ?></p>
-        <p><?= htmlspecialchars($texts['promo_intro_text2'] ?? '') ?></p>
+    <!-- Заголовок перед карточками -->
+    <h2 class="formats-section-title">
+        <?= htmlspecialchars($texts['how_to_choose_title'] ?? '') ?>
+    </h2>
 
-        <hr class="promo-divider">
+    <!-- 2 Параллельные кликабельные карточки форматов -->
+    <div class="formats-container">
+        <!-- Карточка 1: Тактильное тепло -->
+        <a href="<?= $url_prefix ?>paper" class="format-card">
+            <div class="format-card-header">
+                <span class="format-icon">📜</span>
+                <h3><?= htmlspecialchars($texts['card_paper_title'] ?? '') ?></h3>
+            </div>
+            <p class="format-subtitle"><?= htmlspecialchars($texts['card_paper_desc'] ?? '') ?></p>
 
-        <h3><?= htmlspecialchars($texts['promo_about_heading'] ?? '') ?></h3>
-        <p><?= htmlspecialchars($texts['promo_about_desc'] ?? '') ?></p>
-        <p><span><?= $texts['promo_choose_format'] ?? '' ?></span></p>
-        
-        <!-- Оформленный список проектов -->
-        <ul class="promo-services-links">
-            <li>
-    <a href="<?= $url_prefix ?>digital"><?= htmlspecialchars($texts['nav_digital'] ?? '') ?></a> 
-    <span style="white-space: nowrap;">• <?= htmlspecialchars($texts['promo_feat_1_tag'] ?? '') ?></span>
-</li>
-<li>
-    <a href="<?= $url_prefix ?>paper"><?= htmlspecialchars($texts['nav_paper'] ?? '') ?></a> 
-    <span style="white-space: nowrap;">• <?= htmlspecialchars($texts['promo_feat_2_tag'] ?? '') ?></span>
-</li>
-        </ul>
-        
-        <p class="promo-success-badge"><strong><?= $texts['promo_success'] ?? '' ?></strong></p>
+            <div class="format-for-whom">
+                <strong>💡 <?= htmlspecialchars($texts['for_whom_label'] ?? 'Для кого:') ?></strong> <?= htmlspecialchars($texts['card_paper_for_whom'] ?? '') ?>
+            </div>
 
-        <!-- Почему выбирают наш сервис -->
-        <div class="promo-features-block">
-            <h3><?= $texts['promo_why_title'] ?? '' ?></h3>
-            <ul class="promo-features-list">
-                <li><span><?= $texts['promo_feat_1'] ?? '' ?></span></li>
-                <li><span><?= $texts['promo_feat_2'] ?? '' ?></span></li>
-                <li><span><?= $texts['promo_feat_3'] ?? '' ?></span></li>
-                <li><span><?= $texts['promo_feat_4'] ?? '' ?></span></li>
-                <li><span><?= $texts['promo_feat_5'] ?? '' ?></span></li>
-                <li><span><?= $texts['promo_feat_6'] ?? '' ?></span></li>
+            <ul class="format-features">
+                <li><?= htmlspecialchars($texts['card_paper_feat_1'] ?? '') ?></li>
+                <li><?= htmlspecialchars($texts['card_paper_feat_2'] ?? '') ?></li>
+                <li><?= htmlspecialchars($texts['card_paper_feat_3'] ?? '') ?></li>
             </ul>
-        </div>
+            <div class="format-card-link">
+                <?= htmlspecialchars($texts['card_more_details'] ?? '') ?> →
+            </div>
+        </a>
 
-        <!-- Дыхательный тренажер -->
-        <div class="anti-stress-box" id="breathingBox">
-          <p class="anti-stress-title">
+        <!-- Карточка 2: Цифровое тепло -->
+        <a href="<?= $url_prefix ?>digital" class="format-card">
+            <div class="format-card-header">
+                <span class="format-icon">✉️</span>
+                <h3><?= htmlspecialchars($texts['card_digital_title'] ?? '') ?></h3>
+            </div>
+            <p class="format-subtitle"><?= htmlspecialchars($texts['card_digital_desc'] ?? '') ?></p>
+
+            <div class="format-for-whom">
+                <strong>💡 <?= htmlspecialchars($texts['for_whom_label'] ?? 'Для кого:') ?></strong> <?= htmlspecialchars($texts['card_digital_for_whom'] ?? '') ?>
+            </div>
+
+            <ul class="format-features">
+                <li><?= htmlspecialchars($texts['card_digital_feat_1'] ?? '') ?></li>
+                <li><?= htmlspecialchars($texts['card_digital_feat_2'] ?? '') ?></li>
+                <li><?= htmlspecialchars($texts['card_digital_feat_3'] ?? '') ?></li>
+            </ul>
+            <div class="format-card-link">
+                <?= htmlspecialchars($texts['card_more_details'] ?? '') ?> →
+            </div>
+        </a>
+    </div>
+
+    <!-- Блок преимуществ -->
+    <div class="promo-features-block">
+        <h3><?= $texts['promo_why_title'] ?? '' ?></h3>
+        <ul class="promo-features-list">
+            <li><span><?= $texts['promo_feat_1'] ?? '' ?></span></li>
+            <li><span><?= $texts['promo_feat_2'] ?? '' ?></span></li>
+            <li><span><?= $texts['promo_feat_3'] ?? '' ?></span></li>
+            <li><span><?= $texts['promo_feat_4'] ?? '' ?></span></li>
+        </ul>
+    </div>
+
+    <!-- Дыхательный тренажер -->
+    <div class="anti-stress-box" id="breathingBox">
+        <p class="anti-stress-title">
             <?= htmlspecialchars($texts['breathe_title'] ?? '') ?>
-          </p>
-          
-          <div class="breathing-circle-wrapper">
+        </p>
+        
+        <div class="breathing-circle-wrapper">
             <div class="breathing-circle" id="breathingCircle"></div>
             <span class="breathing-text" id="breathingText"
                   data-inhale="<?= htmlspecialchars($texts['breathe_inhale'] ?? '') ?>"
                   data-pause="<?= htmlspecialchars($texts['breathe_pause'] ?? '') ?>"
                   data-exhale="<?= htmlspecialchars($texts['breathe_exhale'] ?? '') ?>">
             </span>
-          </div>
+        </div>
 
-          <div class="breathing-controls" style="margin-top: 15px; text-align: center;">
+        <div class="breathing-controls" style="margin-top: 15px; text-align: center;">
             <button type="button" class="btn-breathing-start" id="breathingToggleBtn"
                     data-start="<?= htmlspecialchars($texts['breathe_start'] ?? '') ?>"
                     data-stop="<?= htmlspecialchars($texts['breathe_stop'] ?? '') ?>">
-              <?= htmlspecialchars($texts['breathe_start'] ?? '') ?>
+                <?= htmlspecialchars($texts['breathe_start'] ?? '') ?>
             </button>
-          </div>
-
-          <p class="anti-stress-hint" id="breathingStatus"
-             data-counter="<?= htmlspecialchars($texts['breathe_counter'] ?? '') ?>"
-             data-done="<?= htmlspecialchars($texts['breathe_done'] ?? '') ?>">
-          </p>
         </div>
 
-        <h3><?= htmlspecialchars($texts['promo_simplicity_title'] ?? '') ?></h3>
-        <p><?= htmlspecialchars($texts['promo_simplicity_text1'] ?? '') ?></p>
-        <p><?= htmlspecialchars($texts['promo_simplicity_text2'] ?? '') ?></p>
+        <p class="anti-stress-hint" id="breathingStatus"
+           data-counter="<?= htmlspecialchars($texts['breathe_counter'] ?? '') ?>"
+           data-done="<?= htmlspecialchars($texts['breathe_done'] ?? '') ?>">
+        </p>
+    </div>
 
-        <?php if (!empty($texts['promo_quote'])): ?>
-            <blockquote><?= htmlspecialchars($texts['promo_quote']) ?></blockquote>
-        <?php endif; ?>
-
-        <div class="promo-cta-box">
-            <h4><?= htmlspecialchars($texts['promo_offer_title'] ?? '') ?></h4>
-            <p><?= htmlspecialchars($texts['promo_offer_text'] ?? '') ?></p>
-            
-            <!-- Кнопки выбора формата -->
-            <div class="buttons-container">
-                <a href="<?= $url_prefix ?>paper" class="btn btn-outline btn-full"><?= htmlspecialchars($texts['btn_paper'] ?? '') ?></a>
-                <a href="<?= $url_prefix ?>digital" class="btn btn-primary btn-full"><?= htmlspecialchars($texts['btn_digital'] ?? '') ?></a>
-            </div>
-
-            <p class="promo-security-note">
-                <?= $texts['promo_payment_security'] ?? '' ?>
-            </p>
-            <p class="promo-guarantees-note">
-                <?= htmlspecialchars($texts['promo_guarantees'] ?? '') ?>
-            </p>
+    <!-- Финальный CTA блок -->
+    <div class="promo-cta-box">
+        <h4><?= htmlspecialchars($texts['promo_offer_title'] ?? '') ?></h4>
+        <p><?= htmlspecialchars($texts['promo_offer_text'] ?? '') ?></p>
+        
+        <div class="buttons-container">
+            <a href="<?= $url_prefix ?>paper" class="btn btn-outline btn-full"><?= htmlspecialchars($texts['btn_paper'] ?? '') ?></a>
+            <a href="<?= $url_prefix ?>digital" class="btn btn-primary btn-full"><?= htmlspecialchars($texts['btn_digital'] ?? '') ?></a>
         </div>
-    </article>
+
+        <p class="promo-security-note">
+            <?= $texts['promo_payment_security'] ?? '' ?>
+        </p>
+        <p class="promo-guarantees-note">
+            <?= htmlspecialchars($texts['promo_guarantees'] ?? '') ?>
+        </p>
+    </div>
 </section>
 
 <script>
@@ -136,7 +149,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const hours = new Date().getHours();
     
-    // Словари приветствий прямо в JS для чистой динамической смены по времени
     const greetings = {
         ru: {
             morning: 'Доброе утро<br>Мы всегда рядом',
