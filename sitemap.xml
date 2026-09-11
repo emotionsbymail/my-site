@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="data:text/xml;charset=utf-8;base64,PHhzbDpzdHlsZXNoZWV0IHZlcnNpb249IjEuMCIgeG1sbnM6eHNsPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L1hTTC9UcmFuc2Zvcm0iIHhtbG5zOnNpdGVtYXA9Imh0dHA6Ly93d3cuc2l0ZW1hcHMub3JnL3NjaGVtYXMvc2l0ZW1hcC8wLjkiPgogIDx4c2w6b3V0cHV0IG1ldGhvZD0iaHRtbCIgZW5jb2Rpbmc9IlVURi04IiBpbmRlbnQ9InllcyIvPgogIDx4c2w6dGVtcGxhdGUgbWF0Y2g9Ii8iPgogICAgPGh0bWw+CiAgICAgIDxoZWFkPgogICAgICAgIDx0aXRsZT5YTUwgU2l0ZW1hcDwvdGl0bGU+CiAgICAgICAgPHN0eWxlPgogICAgICAgICAgYm9keSB7IGZvbnQtZmFtaWx5OiAtYXBwbGUtc3lzdGVtLCBCbGlua01hY3N5c3RlbUZvbnQsICJTZWdvZSBVSSIsIFJvYm90bywgSGVsdmV0aWNhLCBBcmlhbCwgc2Fucy1zZXJpZjsgY29sb3I6ICMzMzM7IG1hcmdpbjogNDAgb3V0bzsgbWF4LXdpZHRoOiA5MDBweDsgcGFkZGluZzogMCAyMHB4OyB9CiAgICAgICAgICBoMSB7IGZvbnQtc2l6ZTogMjRweDsgY29sb3I6ICMxMTFfIH0KICAgICAgICAgIHAgewogICAgICAgICAgICBjb2xvcjogIzY2NjsgZm9udC1zaXplOiAxNHB4OyB9CiAgICAgICAgICB0YWJsZSB7IHdpZHRoOiAxMDAlOyBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlOyBtYXJnaW4tdG9wOiAyMHB4OyBmb250LXNpemU6IDE0cHg7IH0KICAgICAgICAgIHRoLCB0ZCB7IHBhZGRpbmc6IDEwcHggMTJweDsgdGV4dC1hbGlnbjogbGVmdDsgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNlZWU7IH0KICAgICAgICAgIHRoIHsgYmFja2dyb3VuZC1jb2xvcjogI2Y3ZjdkNzsgZm9udC13ZWlnaHQ6IDYwMDsgY29sb3I6ICM0NDQ7IH0KICAgICAgICAgIHRyOmhvdmVyIHsgYmFja2dyb3VuZC1jb2xvcjogI2Y5ZjlmOTsgfQogICAgICAgICAgYSB7IGNvbG9yOiAjMDBmOzsgdGV4dC1kZWNvcmF0aW9uOiBub25lOyB9CiAgICAgICAgICBhOmhvdmVyIHsgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7IH0KICAgICAgICA8L3N0eWxlPgogICAgICA8L2hlYWQ+CiAgICAgIDxib2R5PgogICAgICAgIDxoMT5YTUwgS2FydGEgc2FpdGE8L2gxPgogICAgICAgIDxwPkZpbGUgY29udGFpbnMgPHhzbDp2YWx1ZS1vZiBzZWxlY3Q9ImNvdW50KHNpdGVtYXA6dXJsc2V0L3NpdGVtYXA6dXJsKSIvPiBVUkxzLjwvcD4KICAgICAgICA8dGFibGU+CiAgICAgICAgICA8dHI+CiAgICAgICAgICAgIDx0aD5VUkw8L3RoPgogICAgICAgICAgICA8dGg+TGFzdCBNb2RpZmllZDwvdGg+CiAgICAgICAgICAgIDx0aD5DaGFuZ2UgRnJlcXVlbmN5PC90aD4KICAgICAgICAgICAgPHRoPlByaW9yaXR5PC90aD4KICAgICAgICAgIDwvdHI+CiAgICAgICAgICA8eHNsOmZvci1lYWNoIHNlbGVjdD0ic2l0ZW1hcDp1cmxzZXQvc2l0ZW1hcDp1cmwiPgogICAgICAgICAgICA8dHI+CiAgICAgICAgICAgICAgPHRkPjxhIHhzbDp1c2UtYXR0cmlidXRlLXNldHM9InVybExpbmsiPjx4c2w6YXR0cmlidXRlIG5hbWU9ImhyZWYiPjx4c2w6dmFsdWUtb2Ygc2VsZWN0PSJzaXRlbWFwOmxvYyIvPjwveHNsOmF0dHJpYnV0ZT48eHNsOnZhbHVlLW9mIHNlbGVjdD0ic2l0ZW1hcDpsb2MiLz48L2E+PC90ZD4KICAgICAgICAgICAgICA8dGQ+PHhzbDp2YWx1ZS1vZiBzZWxlY3Q9InNpdGVtYXA6bGFzdG1vZCIvPjwvdGQ+CiAgICAgICAgICAgICAgPHRkPjx4c2w6dmFsdWUtb2Ygc2VsZWN0PSJzaXRlbWFwOmNoYW5nZWZyZXEiLz48L3RkPgogICAgICAgICAgICAgIDx0ZD48eHNsOnZhbHVlLW9mIHNlbGVjdD0ic2l0ZW1hcDpwcmlvcml0eSIvPjwvdGQ+CiAgICAgICAgICAgIDwvdHI+CiAgICAgICAgICA8L3hzbDpmb3ItZWFjaD4KICAgICAgICA8L3RhYmxlPgogICAgICA8L2JvZHk+CiAgICA8L2h0bWw+CiAgPC94c2w6dGVtcGxhdGU+CjwveHNsOnN0eWxlc2hlZXQ+"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
@@ -36,6 +37,80 @@
         <lastmod>2026-08-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+    </url>
+
+    <!-- 4. Каталог открыток (postcards) -->
+    <url>
+        <loc>https://emotionsbymail.com/postcards</loc>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://emotionsbymail.com/postcards" />
+        <xhtml:link rel="alternate" hreflang="ru" href="https://emotionsbymail.com/ru/postcards" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://emotionsbymail.com/en/postcards" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://emotionsbymail.com/postcards" />
+        <lastmod>2026-08-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- 5. Инструкция по оплате (payment) -->
+    <url>
+        <loc>https://emotionsbymail.com/payment</loc>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://emotionsbymail.com/payment" />
+        <xhtml:link rel="alternate" hreflang="ru" href="https://emotionsbymail.com/ru/payment" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://emotionsbymail.com/en/payment" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://emotionsbymail.com/payment" />
+        <lastmod>2026-08-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- ================= LEGAL PAGES ================= -->
+
+    <!-- 6. Политика конфиденциальности (privacy) -->
+    <url>
+        <loc>https://emotionsbymail.com/legal/privacy</loc>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://emotionsbymail.com/legal/privacy" />
+        <xhtml:link rel="alternate" hreflang="ru" href="https://emotionsbymail.com/ru/legal/privacy" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://emotionsbymail.com/en/legal/privacy" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://emotionsbymail.com/legal/privacy" />
+        <lastmod>2026-08-13</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- 7. Условия использования (terms) -->
+    <url>
+        <loc>https://emotionsbymail.com/legal/terms</loc>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://emotionsbymail.com/legal/terms" />
+        <xhtml:link rel="alternate" hreflang="ru" href="https://emotionsbymail.com/ru/legal/terms" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://emotionsbymail.com/en/legal/terms" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://emotionsbymail.com/legal/terms" />
+        <lastmod>2026-08-13</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- 8. Политика возврата (refund-policy) -->
+    <url>
+        <loc>https://emotionsbymail.com/legal/refund-policy</loc>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://emotionsbymail.com/legal/refund-policy" />
+        <xhtml:link rel="alternate" hreflang="ru" href="https://emotionsbymail.com/ru/legal/refund-policy" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://emotionsbymail.com/en/legal/refund-policy" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://emotionsbymail.com/legal/refund-policy" />
+        <lastmod>2026-08-13</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- 9. Политика доставки (shipping-policy) -->
+    <url>
+        <loc>https://emotionsbymail.com/legal/shipping-policy</loc>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://emotionsbymail.com/legal/shipping-policy" />
+        <xhtml:link rel="alternate" hreflang="ru" href="https://emotionsbymail.com/ru/legal/shipping-policy" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://emotionsbymail.com/en/legal/shipping-policy" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://emotionsbymail.com/legal/shipping-policy" />
+        <lastmod>2026-08-13</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
     </url>
 
 </urlset>

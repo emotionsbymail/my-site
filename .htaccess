@@ -3,6 +3,14 @@ RewriteEngine On
 RewriteBase /
 
 # ----------------------------------------------------------------------
+# 0. Защита паролем для тестового стенда (Basic Auth)
+# ----------------------------------------------------------------------
+AuthType Basic
+AuthName "Restricted Area - Test Environment"
+AuthUserFile /home/u13559/test.emotionsbymail.com/.htpasswd
+Require valid-user
+
+# ----------------------------------------------------------------------
 # 1. Заголовки безопасности (Security Headers)
 # ----------------------------------------------------------------------
 <IfModule mod_headers.c>
@@ -16,7 +24,7 @@ RewriteBase /
 # ----------------------------------------------------------------------
 # 2. Ограничения доступа (Защита конфигураций, баз и системных файлов)
 # ----------------------------------------------------------------------
-<FilesMatch "(^config\.php|subscribers\.txt|\.env|\.log|\.git|\.htaccess)$">
+<FilesMatch "(^config\.php|subscribers\.txt|\.env|\.log|\.git|\.htaccess|\.htpasswd)$">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>
@@ -58,8 +66,8 @@ RewriteBase /
 
     # --- РЕДИРЕКТ ДЛЯ QR-КОДОВ И СТАТИСТИКИ ---
     RewriteRule ^12345\.php$ https://emotionsbymail.com/digital [R=302,L]
-RewriteRule ^kyiv\.php$ https://emotionsbymail.com/digital?utm_campaign=kyiv [R=302,L]
-RewriteRule ^poster1$ https://emotionsbymail.com/digital?utm_campaign=poster1 [R=302,L]
+    RewriteRule ^kyiv\.php$ https://emotionsbymail.com/digital?utm_campaign=kyiv [R=302,L]
+    RewriteRule ^poster1$ https://emotionsbymail.com/digital?utm_campaign=poster1 [R=302,L]
 
     # Исключаем реальные файлы, папки и папку /api/ из роутинга index.php
     RewriteCond %{REQUEST_FILENAME} -f [OR]

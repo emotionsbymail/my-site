@@ -48,9 +48,9 @@ $current_full_url = $protocol . ($_SERVER['HTTP_HOST'] ?? 'emotionsbymail.com') 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- ЗАПРЕТ ИНДЕКСАЦИИ ДЛЯ ТЕСТОВОГО СТЕНДА -->
-    <meta name="robots" content="noindex, nofollow, noarchive">
-    <meta name="googlebot" content="noindex, nofollow">
+    <!-- Динамическая подставка ИНДЕКСАЦИИ -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
     
     <!-- Основные метатеги -->
     <title><?= htmlspecialchars($og_title, ENT_QUOTES, 'UTF-8') ?></title>
@@ -77,7 +77,7 @@ $current_full_url = $protocol . ($_SERVER['HTTP_HOST'] ?? 'emotionsbymail.com') 
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- CSS стили -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=8.8.128">
+    <link rel="stylesheet" href="/assets/css/style.css?v=8.8.140">
 
     <!-- Альтернативные языковые версии (относительные пути для тестовой среды) -->
     <link rel="alternate" hreflang="uk" href="<?= htmlspecialchars($ua_url, ENT_QUOTES, 'UTF-8') ?>" />

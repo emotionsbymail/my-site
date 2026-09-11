@@ -1,2 +1,11 @@
 User-agent: *
-Disallow: /
+Allow: /
+
+# Запрет индексации служебных и системных папок
+Disallow: /api/
+Disallow: /logs/
+Disallow: /PHPMailer/
+Disallow: /templates/
+
+# Указание карты сайта для поисковиков
+Sitemap: https://emotionsbymail.com/sitemap.xml

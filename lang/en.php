@@ -21,40 +21,65 @@ return [
     // ==========================================
     // 2. Home Page Hero Section (Main Banner)
     // ==========================================
-    'seo_title'         => 'Support Letter Service&nbsp;& Space to Vent via Email',
-    'hero_greeting'     => 'Warm, Gentle, and Heartfelt Emotional Support',
-    'hero_subtitle'     => 'A safe space where you can anonymously vent via email or receive a genuine paper letter whenever you need care, understanding, and emotional warmth.',
-    'choose_format'     => 'Choose the support format that feels right for you today:',
-    'btn_paper'         => 'Get a Paper Letter',
-    'btn_digital'       => 'Vent via Email',
+    'seo_title'         => 'Support letters service&nbsp;and a safe space to talk via&nbsp;email',
+    'hero_greeting'     => 'Genuinely warm and caring emotional support',
+    'hero_subtitle'     => 'A safe space where you can anonymously share your thoughts via email or receive a heartfelt physical letter whenever you need care, understanding, and warmth.',
+    'choose_format'     => 'Choose the support format that suits you best right now:',
+    'btn_paper'         => 'Get a physical letter',
+    'btn_digital'       => 'Share via Email',
 
     // ==========================================
-    // 2.1. Breathing Exercise (Breathing Trainer)
+    // Format Selection Section
     // ==========================================
-    'breathe_title'     => 'Take 5 calm breaths along with the circle:',
+    'for_whom_label'        => 'Who it is for:',
+    'how_to_choose_title'   => 'Which format to choose?',
+    
+    // Card: Tactile Warmth (Physical Letters)
+    'card_paper_title'      => 'Tactile Warmth',
+    'card_paper_desc'       => 'A real paper letter with important words of support that you can hold in your hands.', // 92 characters
+    'card_paper_for_whom'   => 'For those who want to show gentle care for loved ones, treat themselves to a heartfelt gift, or keep meaningful words as a keepsake postcard.', // 149 characters
+    'card_paper_feat_1'     => 'Thick premium designer paper', // 28 characters
+    'card_paper_feat_2'     => 'Authentic sealing wax stamp', // 28 characters
+    'card_paper_feat_3'     => 'Delivered right to your mailbox or directly in hand', // 55 characters
+
+    // Card: Digital Warmth (Email Support)
+    'card_digital_title'    => 'Digital Warmth',
+    'card_digital_desc'     => 'A fast way to share your feelings via email when emotions simply overflow.', // 92 characters
+    'card_digital_for_whom' => 'For those who need to quickly release heavy thoughts, feel non-judgmental understanding, and maintain full anonymity of correspondence.', // 149 characters
+    'card_digital_feat_1'   => 'Complete anonymity & freedom', // 28 characters
+    'card_digital_feat_2'   => 'Caring response from a human', // 28 characters
+    'card_digital_feat_3'   => 'A supportive letter delivered directly to your inbox', // 55 characters
+
+    'card_more_details'     => 'Learn more',
+
+    // ==========================================
+    // 2.1. Breathing Exercise
+    // ==========================================
+    'breathe_title'     => 'Take 5 calm breaths together with the circle',
     'breathe_start'     => 'Start',
     'breathe_stop'      => 'Stop',
     'breathe_inhale'    => 'Inhale',
     'breathe_pause'     => 'Pause',
     'breathe_exhale'    => 'Exhale',
     'breathe_counter'   => 'Inhale %d of 5',
-    'breathe_done'      => 'Great job! You took 5 breaths. How are you feeling?',
+    'breathe_done'      => 'Great job! You completed 5 breaths. How are you feeling?',
 
     // ==========================================
-    // 3. Service Block (SEO Feature Block)
+    // 3. Service Block
     // ==========================================
-    'promo_why_title' => '💡 Why People Choose Emotions&nbsp;by&nbsp;Mail',
-    'promo_feat_1'    => '✉️ <b>“Digital&nbsp;Warmth”</b> (Email&#8209;Support): the ideal anonymous way to vent quickly, release anxiety by email, and receive a thoughtful response from an empathetic listener.',
-    'promo_feat_2'    => '🤝 <b>“Tactile&nbsp;Warmth”</b> (Paper&nbsp;Letters): a postcard printed on premium designer paper, sealed with real wax. A tangible anchor for yourself or a touching gift for someone special.',
-    'promo_feat_3'    => '☕ <b>Total Acceptance:</b> speak your mind 100% openly — without censorship, shame, judgment, or criticism.',
-    'promo_feat_4'    => '🎯 <b>Human Connection:</b> no bots or template replies — every letter is crafted individually around your personal story.',
-    'promo_feat_5'    => '⚓ <b>Emotional Anchor:</b> physical letters can be kept in a keepsake box and reread in difficult moments as a source of strength.',
-    'promo_feat_6'    => '🔇 <b>Confidentiality:</b> your stories and feelings remain strictly between us.',
-    'promo_offer_title'      => 'Which support format resonates with you right now?',
-    'promo_offer_text'       => 'Clear your mind over Email or gift yourself and your loved ones the joy of receiving a real paper letter.',
-    'promo_cta_btn'          => 'Order Support via Buy Me a Coffee',
-    'promo_payment_security' => '🔒 Safe Space by &nbsp;Emotions&nbsp;by&nbsp;Mail',
-    'promo_guarantees'       => 'Full Anonymity • On-Time Guaranteed Reply • Care in Every Word',
+    'promo_why_title'        => '❤️ Why people trust us with their deepest feelings',
+    
+    'promo_feat_1'           => '🕊️ <b>Full acceptance:</b> share whatever is on your heart — you will be heard with respect and no judgment.', // 119 characters
+    'promo_feat_2'           => '🤝 <b>Real dialogue:</b> no bots or AI templates — only genuine human care and personal attention.',
+    'promo_feat_3'           => '⚓ <b>Tangible anchor:</b> physical letters can be safely kept and reread in tough moments as a source of strength.',
+    'promo_feat_4'           => '🔒 <b>Absolute privacy:</b> your personal stories, thoughts, and emotions remain strictly confidential.',
+    
+    'promo_offer_title'      => 'Allow yourself to feel supported right now',
+    'promo_offer_text'       => 'Release the burden of anxious thoughts via Email or gift yourself and loved ones the warmth of a real paper letter.',
+    'promo_cta_btn'          => 'Get support via Buy Me a Coffee',
+    
+    'promo_payment_security' => '🛡️ Safe space by Emotions&nbsp;by&nbsp;Mail',
+    'promo_guarantees'       => '100% anonymity • On-time delivery • Care in every single word',
 
     // ==========================================
     // 4. Paper Page ("Tactile Warmth" Page)
